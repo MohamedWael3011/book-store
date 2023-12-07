@@ -1,0 +1,56 @@
+.book_cont{
+    padding-top: 0.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 10vw;
+    height: 25vh;
+    line-height: normal;
+    border: 2px solid #ddd; /* Border color and width */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book_cover{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 15vw;
+    height: 17vh;
+}
+
+.book_cover img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3%;
+}
+.book_title{
+    left: 0;
+    padding-left: 0%;
+    font-family: Inria Serif;
+    width: 10vw;
+    height: 4vh;
+    line-height: normal;
+    font-size: 125%;
+    text-align: center;
+}
+
+.author_price_container{
+    display: flex;
+    justify-content: space-evenly;
+    color: #413F3F;
+    font-family: Inria Serif;
+    width: 10vw;
+    height: 5%;
+    font-size: 125%;
+    color: grey;
+}
+
+.author{
+    font-style: italic;
+}
+
+.currency{
+    margin-left: 5%;
+    font-size: 60%;
+    font-weight: bold;
+}
