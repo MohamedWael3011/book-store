@@ -1,9 +1,22 @@
-import React from "react";
 import './SignupLogin.css';
 import Title from "../../components/assets/title.png";
-import BackGroundImg from "../../components/assets/signup_background.jpeg";
-
+import {Link} from 'react-router-dom'
+import { getUsers, login } from '../controller/UserController';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+    const navigator = useNavigate()
+    const[username,setUsername] = useState("")
+    const[password,setPassword] = useState("")
+    const onUsernameChange = event => {
+        setUsername(event.target.value);
+     };
+     const onPasswordChange = event => {
+        setPassword(event.target.value);
+     };
+    useEffect(() => {
+        getUsers().then(users => console.log(users)).catch(error => console.error(error));
+    }, []);
     return (
         <div className='backgrounddiv'>
 
@@ -19,10 +32,10 @@ const Login = () => {
                     Welcome
                 </div>
                 <div className='username'>
-                    <input type="text" placeholder="Username"/>
+                    <input type="text" placeholder="Username" value={username} onChange={onUsernameChange}/>
                 </div>
                 <div className='password'>
-                    <input type="text" placeholder="Password" />
+                    <input type="text" placeholder="Password" value={password} onChange={onPasswordChange} />
                 </div>
                 <div className='forgot_password_remember_me'>
                     <a href='' className='forgot_password'>Forgot Password?</a>
@@ -31,14 +44,14 @@ const Login = () => {
                     </label>
                 </div>
                 <div className='submit_registeration_login'>
-                    <button type="submit" className="Submit">Login</button>
+                    <button type="submit" className="Submit" onClick={()=>{login({username,password},navigator)}}>Login</button>
                 </div>
                 <div className='signup_container'>
                 </div>
                 <div className="signup_line">
                     <div className='w-[25%] h-[1%] bg-white mx-3'>
                     </div>
-                    <a href=''>Sign Up</a>
+                    <Link to='/register'>Sign Up</Link>
                     <div className='w-[25%] h-[1%] bg-white mx-3'>
                     </div>
                 </div>
