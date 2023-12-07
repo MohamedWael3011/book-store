@@ -30,7 +30,7 @@
     width: 10vw;
     height: 4vh;
     line-height: normal;
-    font-size: 125%;
+    font-size: 1.2vw;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@
     font-family: Inria Serif;
     width: 10vw;
     height: 5%;
-    font-size: 125%;
+    font-size: 1.2vw;
     color: grey;
 }
 
@@ -51,6 +51,6 @@
 
 .currency{
     margin-left: 5%;
-    font-size: 60%;
+    font-size: 0.7vw;
     font-weight: bold;
 }
