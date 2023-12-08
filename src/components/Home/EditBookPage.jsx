@@ -3,7 +3,7 @@ import Navbar from '../NavAndFooter/Navbar';
 import testbook from '../../components/assets/testbook.jpg';
 import './EditBookPage.css'
 import Footer from '../NavAndFooter/Footer';
-const BookPage = () => {
+const EditBookPage = () => {
 return (
         <div>
             <Navbar />
@@ -68,4 +68,4 @@ return (
         </div>
       )}
 
-export default BookPage
+export default EditBookPage
