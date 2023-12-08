@@ -8,6 +8,7 @@ import Navbaradmin from "./components/NavAndFooter/NavAdmin.jsx"
 import Footer from "./components/NavAndFooter/Footer.jsx"
 import DeliveryForm from "./components/Delivery/DeliveryForm.jsx"
 import EditBookPage from "./components/Home/EditBookPage.jsx"
+import BookPage from "./components/Home/BookPage.jsx"
 
 function App() {
 
