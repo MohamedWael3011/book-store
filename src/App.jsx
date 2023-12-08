@@ -7,7 +7,8 @@ import AddGenre from "./components/AdminGenre_save/AddGenre.jsx"
 import Navbaradmin from "./components/NavAndFooter/NavAdmin.jsx"
 import Footer from "./components/NavAndFooter/Footer.jsx"
 import DeliveryForm from "./components/Delivery/DeliveryForm.jsx"
-
+import CategorizedBooks from "./components/CategorizedBooks/CategorizedBooks.jsx"
+import Genrelist from "./components/CategorizedBooks/Genre.jsx"
 function App() {
 
   return (
@@ -17,9 +18,7 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-    <Navbar/>
-        <DeliveryForm/>
-        <Footer/>
+        <CategorizedBooks/>
       </div></>
   )
 
