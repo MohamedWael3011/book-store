@@ -32,10 +32,10 @@ const Login = () => {
                     Welcome
                 </div>
                 <div className='username'>
-                    <input type="text" placeholder="Username" value={username} onChange={onUsernameChange}/>
+                    <input className='inputSignUp' type="text" placeholder="Username" value={username} onChange={onUsernameChange}/>
                 </div>
                 <div className='password'>
-                    <input type="text" placeholder="Password" value={password} onChange={onPasswordChange} />
+                    <input className='inputSignUp' type="text" placeholder="Password" value={password} onChange={onPasswordChange} />
                 </div>
                 <div className='forgot_password_remember_me'>
                     <a href='' className='forgot_password'>Forgot Password?</a>

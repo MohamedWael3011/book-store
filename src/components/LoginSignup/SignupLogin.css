@@ -97,7 +97,7 @@
     margin-bottom: 3vh;
 }
 
-input[type="text"] {
+.inputSignUp {
     margin-left: 10%;
     width: 80%;
     height: 80%;
@@ -106,7 +106,7 @@ input[type="text"] {
     font-size: 140%;
   }
 
-  input[type="text"]:focus {
+  .inputSignUp:focus {
     outline: none;
     border: none;
   }

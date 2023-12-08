@@ -36,16 +36,16 @@ const Signup = () => {
                     Sign up
                 </div>
                 <div className='username'>
-                    <input type="text" placeholder="Username" value={username} onChange={onUsernameChange}/>
+                    <input className="inputSignUp" type="text" placeholder="Username" value={username} onChange={onUsernameChange}/>
                 </div>
                 <div className='password'>
-                    <input type="text" placeholder="Password" value={password} onChange={onPasswordChange} />
+                    <input className="inputSignUp" type="text" placeholder="Password" value={password} onChange={onPasswordChange} />
                 </div>
                 <div className='address'>
-                <input type="text" placeholder="Address" value={address} onChange={onAddressChange}/>
+                <input className="inputSignUp" type="text" placeholder="Address" value={address} onChange={onAddressChange}/>
                 </div>
                 <div className='phone'>
-                    <input type="text" placeholder="Phone number" value={phone} onChange={onPhoneChange} />
+                    <input className="inputSignUp" type="text" placeholder="Phone number" value={phone} onChange={onPhoneChange} />
                 </div>
                 <div className='signin_container'>
                     Already have an account?
