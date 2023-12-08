@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../NavAndFooter/Navbar';
 import testbook from '../../components/assets/testbook.jpg';
-import './BookPage.css'
+import './EditBookPage.css'
 import Footer from '../NavAndFooter/Footer';
 const BookPage = () => {
 return (
