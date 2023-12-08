@@ -4,6 +4,7 @@
     background: #EEE2E1;
     display: flex;
     justify-content:left;
+    margin-bottom: 10vh;
 }
 
 .edit_book_card_cont{
@@ -62,10 +63,58 @@
 }
 .book_details_item_cont{
     margin-top: 2vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 .book_details_item_title{
     font-size: 2vw;
     font-family: Inria Serif;
+    margin-right: 2vw;
+}
+.input_book_details{
+    font-size: 1.25vw;
+    font-family: Inria Serif;
+    width: 20vw;
+    height: 1.75vw;
+    border-radius: 1.5vw;
+    padding-left:1vw;
+    padding-right:1vw;
+}
+
+.input_book_details:focus{
+    border: none;
+    outline: none;
+}
+
+.input_book_desc{
+    font-size: 1vw;
+    font-family: Inria Serif;
+    width: 50vw;
+    height: 10vw;
+    border-radius: 1.5vw;
+    padding-left:1vw;
+    padding-right:1vw;
+    padding-top:0.5vw;
+    padding-right:0.5vw;
+    resize: none;
 }
 
 
+.input_book_desc:focus{
+    border: none;
+    outline: none;
+}
+
+.book_desc_item_cont{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.units{
+    color: gray;
+    font-size: 1.5vw;
+    font-family: Inria Serif;
+}
