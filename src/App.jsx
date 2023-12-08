@@ -5,6 +5,7 @@ import {Routes, Route} from 'react-router-dom'
 import BookTest from "./components/Home/BookTest.jsx"
 import AddGenre from "./components/AdminGenre_save/AddGenre.jsx"
 import Navbaradmin from "./components/NavAndFooter/NavAdmin.jsx"
+import BookPage from "./components/Home/BookPage.jsx"
 function App() {
 
   return (
@@ -14,7 +15,7 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-        <AddGenre/>
+        <BookPage/>
       </div></>
   )
 

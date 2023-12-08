@@ -1,0 +1,71 @@
+.book_page_cont{
+    padding-top: 2vh;
+    padding-left: 6vw;
+    background: #EEE2E1;
+    display: flex;
+    justify-content:left;
+}
+
+.edit_book_card_cont{
+    margin-right: 10vw;
+}
+
+.book_page_head{
+    font-size: 3vw;
+    margin-bottom: 5vh;
+    text-decoration: underline;
+    font-family: Inria Serif;
+}
+
+.book_cover_page{
+    width: 20vw;
+    height: 50vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 0.25vw;
+}
+
+.book_cover_cont{
+    width: 17vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit_book_cover{
+    font-size: 2vw;
+    margin-bottom: 7vh;
+    margin-top: 1vh;
+    font-family: Inria Serif;
+}
+
+.edit_book_page_buttons_cont{
+    font-family: Inria Serif;
+    font-size: 1.5vw;
+    width: 15vw;
+    height: 5vh;
+    background-color: #9D8B70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+    border-radius: 3vw;
+    color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.edit_book_page_buttons:hover{
+    text-decoration: underline;
+}
+
+.book_details_cont{
+    margin-top: 15vh;
+}
+.book_details_item_cont{
+    margin-top: 2vh;
+}
+.book_details_item_title{
+    font-size: 2vw;
+    font-family: Inria Serif;
+}
+
+
