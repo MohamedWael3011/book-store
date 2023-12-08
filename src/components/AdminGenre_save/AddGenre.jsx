@@ -2,6 +2,7 @@ import React from "react";
 import './AddGenre.css';
 import {Link} from 'react-router-dom'
 import Navbaradmin from "../../components/NavAndFooter/NavAdmin"
+// import Fotterr from "../../components/NavAndFooter/Footer.jsx"
 import Genre_txt from './Genre_txt.jsx';
 import { register } from '../controller/UserController';import { useEffect, useState } from 'react';
 const AddGenre = () => {
@@ -74,7 +75,7 @@ const AddGenre = () => {
             <button type="submit" className="removebutton" >Remove</button> 
         </div>  
 
-        <div className="AdminNav"> <Navbaradmin/></div>
+        {/* <div className="fotter"> <Fotterr/></div> */}
 
     </div>
     )

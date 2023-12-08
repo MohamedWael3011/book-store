@@ -4,9 +4,9 @@
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    /* line-height: normal; */
     text-transform: capitalize;
 }
-.nameOfGenre:hover{
+/* .nameOfGenre:hover{
     text-decoration: underline white;
-}
+} */
