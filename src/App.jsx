@@ -5,8 +5,17 @@ import {Routes, Route} from 'react-router-dom'
 import BookTest from "./components/Home/BookTest.jsx"
 import AddGenre from "./components/AdminGenre_save/AddGenre.jsx"
 import Navbaradmin from "./components/NavAndFooter/NavAdmin.jsx"
+import Footer from "./components/NavAndFooter/Footer.jsx"
+import DeliveryForm from "./components/Delivery/DeliveryForm.jsx"
+import CategorizedBooks from "./components/CategorizedBooks/CategorizedBooks.jsx"
+import Genrelist from "./components/CategorizedBooks/Genre.jsx"
+import EditBookPage from "./components/Home/EditBookPage.jsx"
 import BookPage from "./components/Home/BookPage.jsx"
+
 import Deliveryy from "./components/Delivery/DeliveryForm.jsx"
+
+
+
 function App() {
 
   return (
@@ -17,8 +26,11 @@ function App() {
     </Routes>
     <div>
         {/* <AddGenre/> */}
-        <AddGenre/>
+        {/* <AddGenre/> */}
         {/* <Deliveryy/> */}
+
+         <CategorizedBooks/>
+
       </div></>
   )
 

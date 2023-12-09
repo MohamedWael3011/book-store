@@ -37,7 +37,7 @@ const AddGenre = () => {
                 <div className="categoryitem"><Genre_txt genre={category[4]}/></div>
             </div>
                
-                <hr className="line"/>
+                <hr className="linee"/>
                 
             <div className="row">
                 <div className="categoryitem"><Genre_txt genre={category[0]}/></div>
@@ -47,7 +47,7 @@ const AddGenre = () => {
                 <div className="categoryitem"><Genre_txt genre={category[4]}/></div>
             </div>
                 
-                <hr className="line"/>
+                <hr className="linee"/>
         
             <div className="row">
                 <div className="categoryitem"><Genre_txt genre={category[0]}/></div>
@@ -56,7 +56,7 @@ const AddGenre = () => {
                 <div className="categoryitem"><Genre_txt genre={category[3]}/></div>
                 <div className="categoryitem"><Genre_txt genre={category[4]}/></div>
             </div>
-            <hr className="line"/>
+            <hr className="linee"/>
 
             <div className="addCatcontainer">
 
