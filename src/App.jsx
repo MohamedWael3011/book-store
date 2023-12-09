@@ -25,11 +25,7 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-        {/* <AddGenre/> */}
-        {/* <AddGenre/> */}
-        {/* <Deliveryy/> */}
-
-         <CategorizedBooks/>
+        <BookPage/>
 
       </div></>
   )
