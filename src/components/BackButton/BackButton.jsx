@@ -5,8 +5,9 @@ import backbutton from "../../components/assets/ArrowCircleRight.png"
 const BackButton = () => {
     return (
         <div className="BackButton">
-                <p className="back">Back</p>
-                <img className="arrow" src={backbutton}/>
+            <button type='submit' className="back">Back
+            <img className="arrow" src={backbutton}/></button>
+                
         </div>
     )
 }
