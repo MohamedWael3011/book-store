@@ -1,4 +1,4 @@
-import './Genrelist.css';
+import './Genre.css';
 import React from 'react';
 
 const Genre = (props) => {
