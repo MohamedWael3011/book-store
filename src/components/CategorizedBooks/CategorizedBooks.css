@@ -31,12 +31,22 @@ margin-top: 2vw;
 display: block;
 background: #F7F1F0;
 width: 18vw ;
+
 margin-left: 7vw;
 border-radius: 20px;
+
+
 margin-top:3vw;
 margin-bottom: 4vw ;
 position: relative;
 
+}
+.ay7aga{
+    border-radius: 20px;
+    border-width: 0.5VW;
+border-style: solid;
+border-color: #9D8B70;
+height: 42vw;
 }
 .genreee{
     display: flex;
@@ -57,7 +67,7 @@ text-align: center;
 .line{
     width: 15vw;
     height: 0.2vw;
-margin-left:1.6vw;
+    margin-left:1.6vw;
     background: #9D8B70;
     margin-bottom:-1.2vw ;
 }
@@ -68,9 +78,9 @@ font-family: Inria Serif;
 font-size: 23px;
 font-style: normal;
 font-weight: 400;
-line-height: normal;
-text-transform: capitalize;
-margin-bottom: -3vw;
+/* line-height: normal; */
+/* text-transform: capitalize; */
+margin-bottom: -2.9vw;
 margin-left: -2.5vw;
 }
 .recymen{
@@ -81,7 +91,7 @@ margin-top:-0.2w ;
 }
 .recshmal{
 position: absolute; 
-margin-top: 39vw;
+margin-top: 38vw;
 margin-left: 3vw;
 }
 .checkaya{
