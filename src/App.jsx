@@ -6,7 +6,7 @@ import BookTest from "./components/Home/BookTest.jsx"
 import AddGenre from "./components/AdminGenre_save/AddGenre.jsx"
 import Navbaradmin from "./components/NavAndFooter/NavAdmin.jsx"
 import BookPage from "./components/Home/BookPage.jsx"
-// import Removetest from "./components/AdminGenre_save/RemoveCat_aadmin.jsx"
+import Deliveryy from "./components/Delivery/DeliveryForm.jsx"
 function App() {
 
   return (
@@ -18,6 +18,7 @@ function App() {
     <div>
         {/* <AddGenre/> */}
         <AddGenre/>
+        {/* <Deliveryy/> */}
       </div></>
   )
 
