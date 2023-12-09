@@ -33,8 +33,11 @@ return(
 
             <div className='recymen'> <img src={Recymen}/> </div>
             <div className='recshmal'> <img src={Recshmal}/> </div>
-        <div className='genrelist'>
 
+          
+        <div className='genrelist'>
+        <div className='ay7aga'>
+        
              <h3 className='listname'>Genre</h3>
              <hr className='line'/>
 
@@ -50,13 +53,13 @@ return(
                 <div className='genrename'> <label className="genreee"> <Genre genre={genre[7]}/> <input className='checkaya' type="checkbox" name='genree'/> </label>  </div>
                 <div className='genrename'> <label className="genreee"> <Genre genre={genre[8]}/> <input className='checkaya' type="checkbox" name='genree'/> </label>  </div> 
 
-               
+        </div> 
 
 
 
         </div>
 
-        
+
 
       
         <div className='displaybooks'>
