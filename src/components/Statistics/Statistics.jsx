@@ -6,16 +6,18 @@ import Navbaradmin from "../../components/NavAndFooter/NavAdmin"
 import { register } from '../controller/UserController';
 import { useEffect, useState } from 'react';
 import Footer from "../NavAndFooter/Footer.jsx";
-const Statistics = () => {
+import Book from "../Home/Book.jsx";
+const Statistics = (props) => {
     
-    const[category,setCategory] = useState([
-        {title:'Romance'},{title:'Informational'},{title:'Fiction'},{title:'Mystery'},{title:'Psychology'}
-    ])
+    const {bookcover,title,id}=props.books;
 
     const[addcat,setCategorynew]=useState("")
     const onAddCategory = event => {
         setCategory(event.target.value);
     };
+
+    // const Book = (props) => {
+    //     const { book_cover, title, author, price } = props.book;
     
 
     return (
@@ -100,6 +102,11 @@ const Statistics = () => {
 
         <div className="TopBooksBox">
             <div className="TitleText">Top Books</div>
+            <div className="Books">
+            <div className='book_cover' >
+            <img src={book_cover} className='book_cover_img'/>
+            </div>
+            </div>
 
         </div>
 

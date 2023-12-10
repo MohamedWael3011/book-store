@@ -51,10 +51,18 @@
 
 .Addrow  .Addcategoryitem{
     display: inline-block;
+
     margin-right:7VW;
 }
 .Addline{ 
     width: 60vw;
+    color:#bbaf9c;
+
+
+    margin-right:8VW;
+}
+.linee{ 
+    width: 62vw;
     color:#bbaf9c;
 
     margin-top: 1.8VW;

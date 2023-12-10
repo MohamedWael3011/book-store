@@ -2,7 +2,11 @@ import React from "react";
 import './AddGenre.css';
 import {Link} from 'react-router-dom'
 import Navbaradmin from "../../components/NavAndFooter/NavAdmin"
+
 // import Fotterr from "../../components/NavAndFooter/Footer.jsx"
+
+import Fotterr from "../../components/NavAndFooter/Footer.jsx"
+
 import Genre_txt from './Genre_txt.jsx';
 import { register } from '../controller/UserController';import { useEffect, useState } from 'react';
 import Footer from "../NavAndFooter/Footer.jsx";
@@ -38,7 +42,11 @@ const AddGenre = () => {
                 <div className="Addcategoryitem"><Genre_txt genre={category[4]}/></div>
             </div>
                
-                <hr className="Addline"/>
+
+                {/* <hr className="Addline"/> */}
+
+                <hr className="linee"/>
+
                 
             <div className="Addrow">
                 <div className="Addcategoryitem"><Genre_txt genre={category[0]}/></div>
@@ -48,7 +56,11 @@ const AddGenre = () => {
                 <div className="Addcategoryitem"><Genre_txt genre={category[4]}/></div>
             </div>
                 
-                <hr className="Addline"/>
+
+                {/* <hr className="Addline"/> */}
+
+                <hr className="linee"/>
+
         
             <div className="Addrow">
                 <div className="Addcategoryitem"><Genre_txt genre={category[0]}/></div>
@@ -57,7 +69,11 @@ const AddGenre = () => {
                 <div className="Addcategoryitem"><Genre_txt genre={category[3]}/></div>
                 <div className="Addcategoryitem"><Genre_txt genre={category[4]}/></div>
             </div>
-            <hr className="Addline"/>
+
+            {/* <hr className="Addline"/> */}
+
+            <hr className="linee"/>
+
 
             <div className="addCatcontainer-save">
 
@@ -77,6 +93,9 @@ const AddGenre = () => {
         </div>  
 
         <div className="AdminNav"> <Footer/></div>
+
+
+        <div className="fotter"> <Fotterr/></div>
 
 
     </div>
