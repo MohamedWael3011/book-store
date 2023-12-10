@@ -14,8 +14,8 @@ import BookPage from "./components/Home/BookPage.jsx"
 
 import Deliveryy from "./components/Delivery/DeliveryForm.jsx"
 import StarRatingAndReview from "./components/PropsAndComps/StarRatingAndReview.jsx"
-
-
+ 
+import Homepage from"./components/Homepage/HomePage.jsx"
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-        <BookPage/>
+        <Homepage/>
 
       </div></>
   )
