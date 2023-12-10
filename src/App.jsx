@@ -13,8 +13,8 @@ import EditBookPage from "./components/Home/EditBookPage.jsx"
 import BookPage from "./components/Home/BookPage.jsx"
 
 import Deliveryy from "./components/Delivery/DeliveryForm.jsx"
-
-
+import Orders from "./components/UserOrders/Orders.jsx"
+import AdminOrders from "./components/AdminOrders/AdminOrders.jsx"
 
 function App() {
 
@@ -25,11 +25,9 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-        <BookPage/>
+        <AdminOrders/>
 
       </div></>
   )
-
 }
-
 export default App
