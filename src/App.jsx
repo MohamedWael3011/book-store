@@ -13,6 +13,7 @@ import EditBookPage from "./components/Home/EditBookPage.jsx"
 import BookPage from "./components/Home/BookPage.jsx"
 
 import Deliveryy from "./components/Delivery/DeliveryForm.jsx"
+import StarRatingAndReview from "./components/PropsAndComps/StarRatingAndReview.jsx"
 
 
 

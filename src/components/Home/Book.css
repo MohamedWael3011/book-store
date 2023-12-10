@@ -1,10 +1,11 @@
 .book_cont{
     padding-top: 0.3vh;
+    padding-bottom: 1vh;
     display: flex;
-    flex-direction: column;
     align-items: center; 
+    justify-content: center;
+    flex-direction: column;
     width: 10vw;
-    height: 25vh;
     line-height: normal;
     border: 2px solid #ddd; /* Border color and width */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -12,7 +13,7 @@
 
 .book_cover{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center; 
     width: 9vw;
     height: 17vh;
