@@ -1,8 +1,8 @@
-.main{
+.Addmain{
     background-color: #EEE2E1;
 }
 
-.heading{
+.Addheading{
     color: #000;
     font-family: Inria Serif;
     font-size:2.2vw;
@@ -10,26 +10,26 @@
     text-decoration-line: underline;
     margin-left: 8VW;
     margin-top: 2vw;
-
+    
 }
 
-.filled-box{
+.Addfilled-box{
     width: 80VW;
-    height :23VW;
+    height :28VW;
     background: #9D8B70;
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
     margin-left: 9VW;
-    margin-top:3VW;
+    margin-top:3VW;  
     padding-left: 7vw;
     padding-top: 3VW;
 }
 
-.addCatcontainer{
+.addCatcontainer-save{
     height: 12%;
     width: 40%;
    position: relative;
 }
-.inputCat{
+.AddinputCat{
     font-family: Inria Serif;
     font-size: 26px;
     font-weight: 400;
@@ -38,61 +38,62 @@
     border-color: #bbaf9c;
     background-color: transparent;
     position: relative;
-
+   
 }
-.inputCat:focus{
+.AddinputCat:focus{
     border:#bbaf9c;
 }
-.inputCat::placeholder{
+.AddinputCat::placeholder{
     color:#EEE2E1;
     padding-left: 1vw;
 }
 
 
-.row .categoryitem{
+.Addrow  .Addcategoryitem{
     display: inline-block;
-    margin-right:8VW;
+    margin-right:7VW;
 }
-.line{ 
-    width: 62vw;
+.Addline{ 
+    width: 60vw;
     color:#bbaf9c;
 
     margin-top: 1.8VW;
     margin-bottom: 1.8VW;
 }
 
-.Box .rectangle{
+.AddBox .Addrectangle{
     margin-left: 7VW;
-    margin-top: -20vw;
+    margin-top: -22vw;
     border: 4px solid;
     border-color: #9d8b70;
     width: 80VW;
-    height :24VW;
+    height :26VW;
 }
 
-.buttonsactions{
+.Addbuttonsactions{
     display:inline-block;
     margin-left: 16VW;
     position: relative;
     top: -2Vw;
 }
-.buttonsactions .removebutton, .buttonsactions .savebutton{
+.Addbuttonsactions .Addremovebutton, .Addbuttonsactions .Addsavebutton{
     background-color:#EEE2E1;
 }
-.savebutton , .removebutton{
+.Addsavebutton , .Addremovebutton{
     width: 12VW;
     height: 4VW;
     border-radius: 32Vw;
     border: 0.3VW solid #9D8B70;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
+   
     color: black;
     font-family: Inria Serif;
     font-size: 2VW; 
     margin-right: 2VW;
 }
-.savebutton:hover , .removebutton:hover{
+.Addsavebutton:hover , .Addremovebutton:hover{
     text-decoration: underline white;
     background-color: #9D8B70;
     color: white;
 }
+

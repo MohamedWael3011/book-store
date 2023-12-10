@@ -11,6 +11,7 @@ import RemoveGenre from "./components/AdminGenre_save/RemoveGenre.jsx"
 import Footer from "./components/NavAndFooter/Footer.jsx"
 import DeliveryForm from "./components/Delivery/DeliveryForm.jsx"
 import BookPage from "./components/Home/BookPage.jsx"
+import Statistics from "./components/Statistics/Statistics.jsx"
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-      <AddGenre/>
+      <Statistics/>
 
       </div></>
   )

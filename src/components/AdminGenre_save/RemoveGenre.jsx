@@ -3,7 +3,9 @@ import './RemoveGenre.css';
 import {Link} from 'react-router-dom'
 import Navbaradmin from "../../components/NavAndFooter/NavAdmin"
 import Genre_txt from './Genre_txt.jsx';
-import { register } from '../controller/UserController';import { useEffect, useState } from 'react';
+import { register } from '../controller/UserController';
+import { useEffect, useState } from 'react';
+import Footer from "../NavAndFooter/Footer.jsx";
 const RemoveGenre = () => {
     
     const[category,setCategory] = useState([
@@ -148,7 +150,7 @@ const RemoveGenre = () => {
             <button type="submit" className="removebutton" >Remove</button> 
         </div>  
 
-        <div className="AdminNav"> <Navbaradmin/></div>
+        <div className="Footer"> <Footer/></div>
 
     </div>
     )
