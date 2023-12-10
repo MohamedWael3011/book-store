@@ -8,7 +8,7 @@ const Book = (props) => {
 
   return (
     <div className='book_cont'>
-      <Link to='./BookPage.jsx'>
+      <Link to=''>
         <div className='book_cover' >
             <img src={book_cover} className='book_cover_img'/>
         </div>
