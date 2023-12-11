@@ -21,6 +21,7 @@ import Deliveryy from "./components/Delivery/DeliveryForm.jsx"
 import StarRatingAndReview from "./components/PropsAndComps/StarRatingAndReview.jsx"
  
 import Homepage from"./components/Homepage/HomePage.jsx"
+import AdminBooks from "./components/Admin_books/Adminbooks.jsx"
 
 function App() {
 
@@ -31,12 +32,13 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-{/* 
-      <Statistics/> */}
+
+       <Statistics/>  
+      {/* <AdminBooks/> */}
 
         {/* <Homepage/> */}
 
-      <AddGenre/>
+      {/* <AddGenre/> */}
 
 
       </div></>

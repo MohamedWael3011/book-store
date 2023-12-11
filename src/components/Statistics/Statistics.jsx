@@ -7,18 +7,16 @@ import { register } from '../controller/UserController';
 import { useEffect, useState } from 'react';
 import Footer from "../NavAndFooter/Footer.jsx";
 import Book from "../Home/Book.jsx";
-const Statistics = (props) => {
+import testbook from '../../components/assets/testbook.jpg';
+const Statistics = () => {
     
-    const {bookcover,title,id}=props.books;
-
-    const[addcat,setCategorynew]=useState("")
-    const onAddCategory = event => {
-        setCategory(event.target.value);
-    };
-
-    // const Book = (props) => {
-    //     const { book_cover, title, author, price } = props.book;
-    
+    const [books, setBooks] = useState([
+        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
+        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
+        { book_cover: testbook, title: 'Moghamrat Maryam', author: 'Anso', price: '250' },
+        { book_cover: testbook, title: 'Moghamrat Maryam', author: 'Anso', price: '250' }
+      ]);
+   
 
     return (
     <div className="Statsmain">
@@ -31,7 +29,21 @@ const Statistics = (props) => {
          </div>
 
          <div className="StatsBox">
-            <div className="Shapeparts">
+
+            <div className="Typechart">
+            <button type="submit" className="General" >Geners</button>
+            <button type="submit" className="Sales" >Sales</button>   
+
+            </div>
+
+
+            <div className="aboutstats">
+                All Time
+            </div>
+
+
+           <div className="barchart">
+           <div className="Shapeparts">
             <div className="Shape1"></div>
             <div className="ChartText"> 60% <br/> Language </div>
 
@@ -72,6 +84,9 @@ const Statistics = (props) => {
             <div className="ChartText"> 70% <br/> Fantasy </div>
 
             </div>
+
+           </div>
+           
             
           
          </div>
@@ -101,11 +116,46 @@ const Statistics = (props) => {
         </div>
 
         <div className="TopBooksBox">
-            <div className="TitleText">Top Books</div>
-            <div className="Books">
-            <div className='book_cover' >
-            <img src={book_cover} className='book_cover_img'/>
-            </div>
+           
+           <div className="Organzie">
+
+           <div className="TitleText">Top Books </div>
+           
+           <div className="List">
+           <select className="SList" name="Months" id="Months">
+       <option value="January">January</option>
+       <option value="Feburary">Feburary</option>
+       <option value="March">March</option>
+       <option value="April">April</option>
+       <option value="May">May</option>
+       <option value="June">June</option>
+       <option value="July">July</option>
+       <option value="Septembr">September</option>
+       <option value="October">October</option>
+       <option value="November">November</option>
+       <option value="December">December</option>
+
+           </select>
+
+           </div>
+          
+
+
+
+           </div>
+            
+         
+            
+
+           
+           
+            <div className="TopBookspart">
+            <div className='book'> <Book book={books[0]}/> 
+            <h3 className="topbookpercent"> 24% </h3>
+            </div> 
+                <div className='book'> <Book book={books[1]}/>  <h3 className="topbookpercent"> 24% </h3> </div> 
+                <div className='book'> <Book book={books[2]}/>  <h3 className="topbookpercent"> 24% </h3> </div> 
+                <div className='book'> <Book book={books[3]}/>  <h3 className="topbookpercent"> 24% </h3> </div> 
             </div>
 
         </div>

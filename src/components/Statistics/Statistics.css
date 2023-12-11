@@ -161,3 +161,113 @@ flex-shrink: 0;
     text-align: center;
 }
 
+.TopBookspart{
+    display: flex;
+   margin-top: 1vw;
+}
+
+.topbookpercent
+{
+    color: #9D8B70;
+  font-family: Inria Serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: inline-block;
+  margin-left: 6vw;
+  margin-top: 1vw;
+}
+
+
+
+.SList
+{
+    /* display: inline-flex;  */
+    padding: 7px 11px 9px 19px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px; 
+    border: 3px solid #9D8B70; 
+    margin-left:70vw;
+    /* top:-5vw; */
+    /* display: relative; */
+    
+}
+
+.List
+{
+    position: relative;
+    margin-top: -2.7vw;
+    margin-bottom: 2vw;
+}
+
+.Organize
+{
+    position: absolute;
+
+}
+
+.aboutstats
+{
+    width: 111px;
+height: 34px;
+color: #FFF;
+font-family: Inria Serif;
+font-size: 20px;
+font-weight: 400;
+position: absolute;
+background: #9D8B70;
+border-radius: 20px;
+text-align: center;
+margin-left: 70vw;
+margin-top: 2vw;
+
+}
+
+.barchart
+{
+    margin-top: 4vw;
+}
+
+.General
+{
+    background: #EEE2E1;
+    width: 119px;
+    height: 38px;
+    border-radius: 20px 0px 0px 20px;
+    border: 2px solid  #9D8B70;
+    justify-content: center;
+    color: #000; 
+    font-family: Inria Serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+ 
+ .Sales 
+{
+    background: #EEE2E1;
+    width: 119px;
+    height: 38px;
+    border-radius: 0px 20px 20px 0px;
+    border: 2px solid  #9D8B70;
+    justify-content: center;
+    /* color: #FFF; */
+    font-family: Inria Serif;
+    font-size: 20px;
+    font-weight: 400;
+} 
+
+.Typechart
+{
+    position: absolute;
+    margin-top: 2vw;
+    margin-left: 3vw;
+}
+
+
+
+.Sales:hover , .General:hover {
+    background:  #9D8B70;
+    color: #FFF; 
+}
