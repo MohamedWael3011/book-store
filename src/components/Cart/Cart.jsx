@@ -10,6 +10,8 @@ import BackButton from '../BackButton/BackButton';
 import Book1 from  '../../components/assets/Book1.png';
 import Book2 from  '../../components/assets/Book2.png';
 import Book3 from  '../../components/assets/Book3.png';
+// import {useHistory} from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -20,6 +22,8 @@ const Cart = () => {
   const totalAmount = orderAmount + deliveryAmount;
   const [totalBooks, setTotalBooks] = useState(0);
   const [orderId, setOrderId] = useState(1);
+  // const history = useHistory();
+
   const handleIncrement = () => {
   setQuantity(quantity + 1);
   setTotalPrice(price * (quantity + 1));
@@ -42,6 +46,10 @@ const Cart = () => {
     }
   };
     
+  // const handlePlaceOrder = () => {
+  //   // Pass the subtotal as a query parameter to the Delivery page
+  //   history.push("./components/Delivery/DeliveryForm?subtotal="+{orderAmount});
+  // };
 
 // const handleDecrement = (item) => {
 //     const updatedItems = items.map((i) => {
