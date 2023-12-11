@@ -5,7 +5,6 @@ import {Routes, Route} from 'react-router-dom'
 import BookTest from "./components/Home/BookTest.jsx"
 import AddGenre from "./components/AdminGenre_save/AddGenre.jsx"
 import Navbaradmin from "./components/NavAndFooter/NavAdmin.jsx"
-
 import RemoveGenre from "./components/AdminGenre_save/RemoveGenre.jsx"
 
 import Footer from "./components/NavAndFooter/Footer.jsx"
