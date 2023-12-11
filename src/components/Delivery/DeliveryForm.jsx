@@ -64,14 +64,14 @@ const DeliveryForm = () => {
             />
             <input
               type="text"
-              placeholder="Phone no."
+              placeholder="Building no."
               onChange={handleChange}
               name="buildingno"
               value={deliveryData.buildingno}
             />
             <input
               type="text"
-              placeholder="Building no."
+              placeholder="Phone no."
               onChange={handleChange}
               name="phoneno"
               value={deliveryData.phoneno}
