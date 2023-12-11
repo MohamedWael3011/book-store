@@ -28,7 +28,7 @@ function App() {
     </Routes>
     <div>
         <Cart/>
-      </div></>
+    </div></>
   )
 }
 export default App
