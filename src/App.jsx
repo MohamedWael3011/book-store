@@ -16,6 +16,7 @@ import Orders from "./components/UserOrders/Orders.jsx"
 import AdminOrders from "./components/AdminOrders/AdminOrders.jsx"
 import StarRatingAndReview from "./components/PropsAndComps/StarRatingAndReview.jsx"
 import Homepage from"./components/Homepage/HomePage.jsx"
+import Cart from "./components/Cart/Cart.jsx"
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
       <Route path="/register" element={<Signup/>}/>
     </Routes>
     <div>
-        <Orders/>
+        <Cart/>
       </div></>
   )
 }
