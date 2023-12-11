@@ -1,6 +1,6 @@
 .left-section-margin {
     width: 955px;
-    height: 750px;
+    height: 700px;
     flex-shrink: 0;
     border-radius: 32px 0px;
     background: rgba(157, 139, 112, 0.40);
@@ -27,8 +27,8 @@
     flex-shrink: 0;
     background: #9D8B70;
     margin: 20px 0px 0px 0;
-    margin-left: 30px;
-    border-radius: 10px;
+    margin-left: 80px;
+    margin-bottom: -31px;
 }
 
 .orderID::before {
@@ -83,7 +83,7 @@
     flex-shrink: 0;
     margin-right: 0px;
     display: inline-block;
-    margin: 50px;
+    margin: 52px;
     margin-left: 0;
 }
 
@@ -111,7 +111,7 @@
 
 .right-section {
     margin-top: 220px;
-    margin-left: -85px;
+    margin-left: -125px;
     margin-right: 93px;
     margin-bottom: 200px;;
     width: 471px;

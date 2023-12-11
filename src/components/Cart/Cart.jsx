@@ -186,10 +186,12 @@ const handleAddToCart = (item) => {
           </div>
         </div>
       </div>
-      <div className="TrashSection">
+      <button>
+        <div className="TrashSection">
         <div className="verticalLine"></div>
         <img className="removeIcon" src={Basket} alt="Basket" />
       </div>
+        </button>
     </div>
 
   </div>
