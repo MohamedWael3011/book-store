@@ -119,10 +119,12 @@ svg {
     align-items: center;
     margin-left: 100px;;
     margin-top: 56px;
+    width: 100%;
 }
 
 .leftText {
-    margin-right: 280px;;
+    margin-right: 250px;
+    /* width: 100%; */
 }
 
 .btn {
