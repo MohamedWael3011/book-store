@@ -1,10 +1,7 @@
-import React from "react";
 import './Statistics.css';
-import {Link} from 'react-router-dom'
 import Navbaradmin from "../../components/NavAndFooter/NavAdmin"
 // import Genre_txt from './Genre_txt.jsx';
-import { register } from '../controller/UserController';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import Footer from "../NavAndFooter/Footer.jsx";
 import Book from "../Home/Book.jsx";
 import testbook from '../../components/assets/testbook.jpg';

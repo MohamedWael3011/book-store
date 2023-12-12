@@ -75,11 +75,7 @@ position:absolute;
     position: absolute;
  
 }
-.authorlayer{
-    padding-top: 3vw;
-    position: relative;
-    /* width: 100%; */
-}
+
 .authornamee{
 color: #000;
 font-family: Inria Serif;
@@ -107,9 +103,12 @@ margin-left: 12vw;
     opacity: 100%;
   
 }
-.authorslid{margin-top: 10vw;
+.authorslid{
+margin-top: 10vw;
 margin-bottom: 12vw;
-width: 100%;}
+background: url(../../components/assets/Frame 21.png) center no-repeat;
+background-size: cover;
+}
 
 .CategoryRow{
     display: flex;

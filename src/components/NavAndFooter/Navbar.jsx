@@ -2,8 +2,8 @@ import './NavAndFooter.css';
 import logo from "../../components/assets/logo.png"
 import search from "../../components/assets/MagnifyingGlass.svg"
 import cart from "../../components/assets/ShoppingCartSimple.svg"
-import user from "../../components/assets/UserCircle.svg"
 import { Link } from 'react-router-dom';
+import LoginLogoutComp from '../Homepage/LoginLogoutComp';
 
 const Navbar = () => {
     return (
@@ -29,9 +29,7 @@ const Navbar = () => {
                 <div className="Nav_icons">
                 <Link to='/cart'><img src={cart} /></Link>
                 </div>
-                <div className="Nav_icons">
-                    <a href=""><img src={user} /></a>
-                </div>
+                    <LoginLogoutComp/>
             </div>
         </div>
     )

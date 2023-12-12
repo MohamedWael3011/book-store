@@ -10,8 +10,10 @@ import './BookPage.css'
 import ReviewsProp from '../PropsAndComps/ReviewsProp';
 import star from '../../components/assets/star.svg'
 import StarRatingAndReview from '../PropsAndComps/StarRatingAndReview';
-import { useParams,useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import BookNotFound from '../Home/BookNotFound'
+import { getBook } from '../../controller/BooksController'
+import { useQuery } from 'react-query'
 
 const BookPage = () =>{
     const [books, setBooks] = useState([
@@ -28,9 +30,13 @@ const BookPage = () =>{
     ])
     
     const {bookid} = useParams()
-    console.log(bookid)
+    const {data:bookDetails} = useQuery({
+        queryFn: ()=>getBook(bookid),
+        queryKey: [`book ${bookid}`] 
+    });
     
-    const specificBook = books.find(book => String(book.book_id) === bookid);
+   
+    const specificBook = bookDetails;
 
   
     if (!specificBook) {
@@ -45,12 +51,12 @@ const BookPage = () =>{
                     <div className='book_page_secondary_container'>
                         <div className='book_page_details_user'>
                             <div className='book_page_title_author'>
-                                <span className='title_user'>{specificBook.title}</span>
-                                <span className='author_user'>{specificBook.author}</span>
+                                <span className='title_user'>{specificBook.book_name}</span>
+                                <span className='author_user'>{specificBook.author.author_name}</span>
                             </div>
                             <div className='book_page_genre'>
-                                Genre: {specificBook.title}
-                                param: {specificBook.book_id}
+                                Genre: {specificBook.book_name}
+                                param: {specificBook.id}
                             </div>
                             <div className='book_page_desc'>
                                 {specificBook.description}
@@ -63,7 +69,7 @@ const BookPage = () =>{
                             </div>
                         </div>
                         <div className='book_page_cover_cont_user'>
-                            <img src={specificBook.book_cover} className='img_cont'/>
+                            <img src={specificBook.image_url} className='img_cont'/>
                             <div className='rectangle_user'>
                                  <div className='back_button_container'>
                                     <BackButtonWhite/>
@@ -78,7 +84,7 @@ const BookPage = () =>{
                                     About author:
                                 </span>
                                 <span className='author_name_desc'>
-                                    {specificBook.author}
+                                    {specificBook.author.author_name}
                                 </span>
                             </div>
                             <div className='desc_cont'>

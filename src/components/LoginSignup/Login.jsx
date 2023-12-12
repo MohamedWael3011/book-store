@@ -1,7 +1,7 @@
 import './SignupLogin.css';
 import Title from "../../components/assets/title.png";
 import {Link} from 'react-router-dom'
-import { getUsers, login } from '../controller/UserController';
+import { getUsers, login } from '../../controller/UserController';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {

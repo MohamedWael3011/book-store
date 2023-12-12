@@ -2,7 +2,7 @@ import './SignupLogin.css'
 import Title from "../../components/assets/title.png";
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import { register } from '../controller/UserController';
+import { register } from '../../controller/UserController';
 import {useState} from 'react'
 
 const Signup = () => {

@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { PlainUser } from '../../interfaces/PlainUser';
+import { PlainUser } from '../interfaces/PlainUser';
+import { UserDTO } from '../interfaces/UserDTO';
+
 import { json } from 'react-router-dom';
 const headers = {
     'Content-Type': 'application/json',
@@ -21,6 +23,7 @@ export async function login(user: PlainUser, navigate: any) {
         const response = await axios.post(`${apiBaseUrl}/user/login`, JSON.stringify(user), { headers, withCredentials: false });
 
         if (response.status === 200) {
+            localStorage.setItem("BookStoreUser",JSON.stringify(response.data))
             navigate('/home');
         }
         console.log(response.data)
@@ -33,11 +36,12 @@ export async function login(user: PlainUser, navigate: any) {
 }
 
 
-export async function register(user: PlainUser, navigate: any) {
+export async function register(user: UserDTO, navigate: any) {
     try {
         const response = await axios.post(`${apiBaseUrl}/user/register`, JSON.stringify(user), { headers, withCredentials: false });
 
         if (response.status === 200) {
+            localStorage.setItem("BookStoreUser",JSON.stringify(response.data))
             navigate('/home');
         }
         console.log(response.data)
@@ -49,33 +53,4 @@ export async function register(user: PlainUser, navigate: any) {
     }
 }
 
-export async function editBooks(books) {
-    try {
-        const response = await axios.put(`${apiBaseUrl}/books/edit/books`, JSON.stringify(books), { headers:headers, withCredentials:false });
-        return response.data;
-    } catch (error) {
-        console.error('Error editing book:', error);
-        throw error;
-    }
-}
-
-export async function deleteBooks(bookid) {
-    try {
-        const response = await axios.delete(`${apiBaseUrl}/admin/delete/books`, { headers:headers, withCredentials:false,params: {book_id:bookid} });
-        return response.data;
-    } catch (error) {
-        console.error('Error deleting book:', error);
-        throw error;
-    }
-}
-
-export async function getBook(bookid) {
-    try {
-        const response = await axios.get(`${apiBaseUrl}/book/books`, { headers:headers, withCredentials:false,params: {book_id:bookid} });
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching book:', error);
-        throw error;
-    }
-}
 
