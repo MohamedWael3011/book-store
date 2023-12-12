@@ -1,0 +1,134 @@
+.PageTitle
+{
+    color: #000;
+
+font-family: Inria Serif;
+font-size: 46px;
+font-weight: 700;
+line-height: normal;
+text-decoration-line: underline;
+margin-left: 5vw;
+margin-top: 3vw;
+}
+
+.tableHeading
+{
+    color: #000;
+    padding-right: 3vw;
+font-family: Inria Serif;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-align: left;
+}
+
+.BookList{
+   
+    width: 1268px;
+    height: 1041px;
+    margin-left: 7.5vw;
+    margin-top: 2vw;
+    position: absolute;
+   border: 3px solid #9D8B70;
+   border-radius: 40px;
+  background: #FFF;
+}
+
+.bookTable
+{
+ margin-left: 4vw;
+ margin-top: 2vw;
+ width: 924px;
+height: 865px;
+}
+
+.tableData
+{
+    color: #000;
+    padding-top: 3.5vw;
+    padding-right: 3vw;
+   font-family: Inria Serif;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+   text-align: left;
+}
+
+.vLine
+{
+    border-left: 0.3vw solid #9D8B70;;
+    height:830px;
+    position: relative;
+    margin-left: 62vw;
+    margin-top: -52vw;
+   
+}
+
+.Trashpic
+{
+    position: relative;
+    margin-left: 65vw;
+    margin-top: -54vw;
+   
+}
+.tpic
+{
+    margin-bottom: 34px;
+}
+
+
+.etext
+{
+    position: relative;
+  
+    color: #000;
+   font-family: Inria Serif;
+   font-size: 24px;
+   font-weight: 400;
+   text-decoration-line: underline;
+}
+
+.pic-text
+{
+    display: flex;
+    gap:4vw;
+}
+
+.loadmore
+{
+    color: #413F3F;
+font-family: Inria Serif;
+font-size: 24px;
+font-weight: 400;
+text-decoration-line: underline;
+text-align: center;
+}
+
+.NewButton
+{
+    display: inline-flex;
+padding: 12px 164px 12px 165px;
+justify-content: center;
+align-items: center;
+border-radius: 40px;
+background: #9D8B70;
+position: absolute;
+margin-top:73vw ;
+margin-left: 32vw;
+color: #FFF;
+
+font-family: Inria Serif;
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+.Last
+{
+    margin-top: 80vw; 
+}
+

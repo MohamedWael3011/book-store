@@ -1,3 +1,6 @@
+// import { useLocation } from "react-router-dom";
+import Navbar from "../NavAndFooter/Navbar";
+import Footer from "../NavAndFooter/Footer";
 import React from "react";
 import './delivery.css';
 
@@ -9,6 +12,12 @@ const DeliveryForm = () => {
     phoneno: "",
     comment: ""
   });
+  const deliveryAmount = 50;
+  const [orderAmount, setOrderAmount] = React.useState(0);
+  const totalAmount = orderAmount + deliveryAmount;
+  // const location = useLocation();
+  // const searchParams = new URLSearchParams(location.search);
+  // const subtotal = searchParams.get("subtotal");
 
   console.log(deliveryData);
 
@@ -37,6 +46,7 @@ const DeliveryForm = () => {
   
     return (
       <div>
+        <Navbar/>
       <div >
         <div className="delform">
         <div className="myform">
@@ -54,14 +64,14 @@ const DeliveryForm = () => {
             />
             <input
               type="text"
-              placeholder="Phone no."
+              placeholder="Building no."
               onChange={handleChange}
               name="buildingno"
               value={deliveryData.buildingno}
             />
             <input
               type="text"
-              placeholder="Building no."
+              placeholder="Phone no."
               onChange={handleChange}
               name="phoneno"
               value={deliveryData.phoneno}
@@ -95,9 +105,9 @@ const DeliveryForm = () => {
  
     </div>
     <div className="total">
-    <div className="leftText">Order amount:</div>
-    <div className="leftText">Delivery amount:</div>
-    <div className="leftText">Total amount:</div>
+    <div className="leftText">Order amount: {orderAmount} EGP</div>
+    <div className="leftText">Delivery amount: {deliveryAmount} EGP</div>
+    <div className="leftText">Total amount: {totalAmount} EGP</div>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="904" height="4" viewBox="0 0 904 4" fill="none">
     <path d="M2 2H902" stroke="#9D8B70" strokeWidth="4" strokeLinecap="round"/>
@@ -109,6 +119,7 @@ const DeliveryForm = () => {
       </div>
 
   </div>
+  <Footer/>
   </div>
 );
 };
