@@ -19,6 +19,9 @@ import AdminOrders from "./components/AdminOrders/AdminOrders.jsx"
 import StarRatingAndReview from "./components/PropsAndComps/StarRatingAndReview.jsx"
 import HomePage from "./components/Homepage/HomePage.jsx"
 import BookNotFound from "./components/Home/BookNotFound.jsx"
+import Previous_orders from "./components/UserOrders/Previousorders.jsx"
+import Cart from "./components/Cart/Cart.jsx"
+import Adminbooks from "./components/Admin_books/Adminbooks.jsx"
 
 function App() {
 
@@ -32,7 +35,17 @@ function App() {
     <Route path="/book/:bookid" element={<BookPage/>}/>
     <Route path="/book" element={<BookNotFound/>}/>
     <Route path="/book-cat" element={<CategorizedBooks/>}/>
+    <Route path="/delivery-form" element={<DeliveryForm/>}/>
+    <Route path="/previous-orders" element={<Orders/>}/>
+    <Route path="/cart" element={<Cart/>}/>
+    <Route path="/admin-books" element={<Adminbooks/>}/>
+    <Route path="/admin-orders" element={<AdminOrders/>}/>
+    <Route path="/statistics" element={<Statistics/>}/>
+
+
+
   </Routes>
+
   )
 }
 export default App

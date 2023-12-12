@@ -10,10 +10,19 @@ import BackButton from '../BackButton/BackButton';
 import Book1 from  '../../components/assets/Book1.png';
 import Book2 from  '../../components/assets/Book2.png';
 import Book3 from  '../../components/assets/Book3.png';
+import Book from '../../components/Home/Book';
+
 // import {useHistory} from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const Cart = () => {
+   const [books, setBooks] = useState([
+        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:55 },
+        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:65 },
+        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:75 },
+        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:85 },
+        { book_cover: testbook, title: 'Moghamrat Anso rakam id 155', author: 'Anso', price: 250, book_id:155 }
+      ]);
   const [items, setItems] = useState([]);
   const [orderAmount, setOrderAmount] = useState(0);
   const deliveryAmount = 50;
@@ -22,6 +31,7 @@ const Cart = () => {
   const totalAmount = orderAmount + deliveryAmount;
   const [totalBooks, setTotalBooks] = useState(0);
   const [orderId, setOrderId] = useState(1);
+  
   // const history = useHistory();
 
   const handleIncrement = () => {
@@ -133,6 +143,8 @@ const handleAddToCart = (item) => {
     setOrderAmount((prevAmount) => prevAmount - item.price);
     setTotalBooks((prevTotal) => prevTotal - 1);
   };
+
+  
 
   return (
     <div>
@@ -248,18 +260,11 @@ const handleAddToCart = (item) => {
       <div className="Suggest2"><a href = "">See All &gt; </a></div>
       </div>
       <div className="bookSuggestions">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div className="bookSuggestion" key={index}>
-              <img className="bookCover" src={book.book_cover} alt="Book Cover" />
-              <div className="bookTitle">{book.title}</div>
-              <div className="last-row">
-  
-              <div className="bookAuthor">{book.author}</div>
-              <div className="bookPrice">{book.price} EGP</div>
-  
-              </div>              
-            </div>
-          ))}
+      <Book book={books[0]} className='book_cont'/>
+                            <Book book={books[1]} className='book_cont'/>
+                            <Book book={books[2]} className='book_cont'/>
+                            <Book book={books[3]} className='book_cont'/>
+                            <Book book={books[4]} className='book_cont'/>
         </div>
     </div>
     </div>
