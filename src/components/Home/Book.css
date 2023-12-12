@@ -38,34 +38,42 @@
 }
 .book_title{
     margin-top: 0.5vh;
-    margin-bottom: 1vh;
     left: 0;
     padding-left: 0%;
     font-family: Inria Serif;
     width: 10vw;
-    height: 4vh;
     line-height: normal;
     font-size: 1.1vw;
     text-align: center;
 }
 
 .author_price_container{
+    padding-left: 2vw;
+    padding-right: 2vw;
     display: flex;
     justify-content: space-evenly;
     color: #413F3F;
     font-family: Inria Serif;
     width: 10vw;
-    height: 5%;
+    height: 3vh;
     font-size: 1.2vw;
     color: lightgrey;
+    margin-top: 0.5vh;
 }
 
 .author{
     font-style: italic;
 }
 
-.currency{
-    margin-left: 5%;
+.currency_book{
     font-size: 0.7vw;
     font-weight: bold;
+}
+
+.book_price_book{
+    
+}
+
+.price_currency_cont{
+    margin-left: 1vw;
 }

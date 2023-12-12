@@ -16,9 +16,9 @@ const Book = (props) => {
         <h3 className="book_title">{title}</h3>
         <div className="author_price_container">
           <span className="author">{author}</span>
-          <div>
-              <span className="price">{price}</span>
-              <span className='currency'>EGP</span>
+          <div className='price_currency_cont'>
+              <span className="book_price_book">{price}</span>
+              <span className='currency_book'>EGP</span>
           </div>
         </div>
     </div>
