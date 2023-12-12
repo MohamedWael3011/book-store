@@ -15,9 +15,6 @@ const Navbar = () => {
                     <a href="" className="Nav_link">Home</a>
                 </div>
                 <div className="Nav_items whitespace-nowrap">
-                    <a href="" className="Nav_link">About us</a>
-                </div>
-                <div className="Nav_items whitespace-nowrap">
                     <a href="" className="Nav_link">Genre</a>
                 </div>
                 <div className="Nav_items">

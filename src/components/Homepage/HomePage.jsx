@@ -10,19 +10,20 @@ import authourback from '../../components/assets/Frame 21.png';
 import testbook from '../../components/assets/testbook.jpg';
 import authourpic from '../../components/assets/colleen-hoover1-removebg-preview 1.png';
 import { useState } from 'react';
-import Book from "../Home/Book";
+import Book from "../Home/Book.jsx";
 import Genre from"../AdminGenre_save/Genre_txt.jsx";
 import GenreCard from "../Homepage/GenreCard.jsx";
+import Cover from "../assets/book_cover_test.png"
 
 
 
 const HomePage = () => {
     const [books, setBooks] = useState([
-        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
-        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
-        { book_cover: testbook, title: 'Moghamrat Maryam', author: 'Anso', price: '250' },
-        { book_cover: testbook, title: 'Moghamrat Maryam', author: 'Anso', price: '250' },
-        { book_cover: testbook, title: 'Moghamrat Maryam', author: 'Anso', price: '250' }
+        { book_cover: Cover, title: 'Moghamrat Anso sda sad dsadsa da ssa dsa ds', author: 'Anso', price: 250, book_id:155 },
+        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:12 },
+        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:13 },
+        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:14 },
+        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:15 }
       ]);
 
       const[genre,setgenre] = useState([

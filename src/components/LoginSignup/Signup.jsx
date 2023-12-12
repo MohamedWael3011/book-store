@@ -11,7 +11,7 @@ const Signup = () => {
     const[username,setUsername] = useState("")
     const[password,setPassword] = useState("")
     const[address,setAddress] = useState("")
-    const[phone,setPhone] = useState(0)
+    const[phone,setPhone] = useState("")
 
     const onUsernameChange = event => {
         setUsername(event.target.value);

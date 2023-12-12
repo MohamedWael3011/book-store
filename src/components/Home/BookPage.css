@@ -8,6 +8,7 @@
     height: 100vh;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5vw;
 }
 
 .book_page_details_user{
