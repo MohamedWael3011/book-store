@@ -92,7 +92,7 @@ const AddGenre = () => {
             <button type="submit" className="Addremovebutton" >Remove</button> 
         </div>  
 
-        <div className="AdminNav"> <Footer/></div>
+       
 
 
         <div className="fotter"> <Fotterr/></div>

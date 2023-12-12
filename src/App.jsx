@@ -45,9 +45,9 @@ function App() {
 
         {/* <Homepage/> */}
 
-      {/* <AddGenre/> */}
+      <AddGenre/>
 
-        <UsersOrders/>
+        {/* <UsersOrders/> */}
    
 
         {/* <Cart/> */}
