@@ -2,9 +2,18 @@ import Navbar from "../NavAndFooter/Navbar";
 import Footer from '../NavAndFooter/Footer';
 import Trash from "../assets/Trash.png";
 import './AdminBooks.css';
+import { getBooks } from "../../controller/BooksController.ts"
+import { useQuery } from "react-query";
+import AdminbooksRow from "./AdminbooksRow.jsx";
 
 const AdminBooks = () => {
    
+    const {data:bookData} = useQuery({
+        queryFn: getBooks,
+        queryKey: ["books"]
+    });
+    
+
 return(
     <div className="AdminBookPage">
 
@@ -13,174 +22,12 @@ return(
 
              <div className="BookList">
                 <table className="bookTable">
-                    <tr>
-                        <th className="tableHeading">
-                            ID
-                        </th>
-                        <th className="tableHeading">
-                            Name
-                        </th>
-                        <th className="tableHeading">
-                            Stock
-                        </th>
-                        <th className="tableHeading">
-                            Genre
-                        </th>
-
-                    </tr>
-
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                           Romance 
-                        </th>
-
-                    </tr>
-                    <tr>
-                        <th className="tableData">
-                            #800
-                        </th>
-                        <th className="tableData">
-                            ItEndsWithUs
-                        </th>
-                        <th className="tableData">
-                          Quantity:50
-                        </th>
-                        <th className="tableData">
-                          Mystery & thriller
-                        </th>
-
-                    </tr>
-
+                        <tbody>
+                            {bookData?.map((book)=>
+                            { 
+                            return (<AdminbooksRow key={book.id} book={book}/>)}
+                                )}
+                        </tbody>
                 </table>
                 <div className="vLine"> </div>
                 <div className="Trashpic">

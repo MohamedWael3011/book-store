@@ -31,8 +31,6 @@ function App() {
     <Route path="/admin-orders" element={<AdminOrders/>}/>
     <Route path="/statistics" element={<Statistics/>}/>
 
-
-
   </Routes>
 
   )

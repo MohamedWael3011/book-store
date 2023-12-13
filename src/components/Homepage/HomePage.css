@@ -61,14 +61,11 @@ position:absolute;
 .booksrowHome{    
     display: flex;
     margin-top: 2vw;
-    margin-left: 5vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
     margin-bottom: 2vw;
 }
     
-.bookk{
-    margin-right: 3vw;
-}
-
 .authorslideback{
     width:100%;
     /* flex-shrink: 0; */

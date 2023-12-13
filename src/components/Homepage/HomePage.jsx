@@ -1,5 +1,5 @@
 import Navbar from "../NavAndFooter/Navbar";
-import Fotterr from "../../components/NavAndFooter/Footer.jsx";
+import Footer from "../../components/NavAndFooter/Footer.jsx";
 import './HomePage.css';
 import Bookdisc from '../../components/assets/disbook.jpg'
 import DiscountImg from '../../components/assets/DiscountPartImg.jpg'
@@ -115,7 +115,7 @@ return(
         </div>
         
         <div className="ffot">
-        <Fotterr/>
+        <Footer/>
         </div>
     </div>
 

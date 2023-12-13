@@ -10,12 +10,15 @@ import './BookPage.css'
 import ReviewsProp from '../PropsAndComps/ReviewsProp';
 import star from '../../components/assets/star.svg'
 import StarRatingAndReview from '../PropsAndComps/StarRatingAndReview';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import BookNotFound from '../Home/BookNotFound'
 import { getBook } from '../../controller/BooksController'
 import { useQuery } from 'react-query'
+import { Link } from 'react-router-dom'
+import { getBooks } from "../../controller/BooksController.ts"
 
 const BookPage = () =>{
+    const navigate=useNavigate();
     const [books, setBooks] = useState([
         { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:55 },
         { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:65 },
@@ -35,7 +38,11 @@ const BookPage = () =>{
         queryKey: [`book ${bookid}`] 
     });
     
-   
+    const {data:bookData} = useQuery({
+        queryFn: getBooks,
+        queryKey: ["books"]
+    });
+    
     const specificBook = bookDetails;
 
   
@@ -56,7 +63,6 @@ const BookPage = () =>{
                             </div>
                             <div className='book_page_genre'>
                                 Genre: {specificBook.book_name}
-                                param: {specificBook.id}
                             </div>
                             <div className='book_page_desc'>
                                 {specificBook.description}
@@ -65,7 +71,7 @@ const BookPage = () =>{
                                 PRICE: <span className='book_page_price_text'>{specificBook.price}</span> EGY
                             </div>
                             <div className='book_page_user_buttons'>
-                                <button type="submit" className="add_cart">Add to cart</button>
+                                <button  onClick={()=>navigate('/cart', {state:{bookid}})} className="add_cart">Add to cart</button>
                             </div>
                         </div>
                         <div className='book_page_cover_cont_user'>
@@ -93,11 +99,7 @@ const BookPage = () =>{
                             </div>
                         </div>
                         <div className='book_recommendations'>
-                            <Book book={books[0]} className='book_cont'/>
-                            <Book book={books[1]} className='book_cont'/>
-                            <Book book={books[2]} className='book_cont'/>
-                            <Book book={books[3]} className='book_cont'/>
-                            <Book book={books[4]} className='book_cont'/>
+                        {bookData?.map((book)=>{return (<Book key={book.id} book={book} className='book_cont'/>)})}
                         </div>
                     </div>
                     <div className='reviews_title_rating_sales_cont'>
