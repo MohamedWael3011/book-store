@@ -8,10 +8,12 @@ import { useQuery } from 'react-query';
 import { useEffect } from 'react';
 import { getGenreByName } from '../../controller/GenreController';
 import { getAuthorByName } from '../../controller/AuthorController';
+import useIsAdmin from '../../hooks/useIsAdmin';
 
 const EditBookPage = () => {
 
     const { bookid } = useParams();
+    const isAdmin = useIsAdmin();
 
     
 
@@ -90,7 +92,7 @@ const EditBookPage = () => {
                 throw error;
             }
         },
-        queryKey: [`Author`],
+        queryKey: [`Author`,`book ${bookid}`],
     });
     const { data: genreQuery} = useQuery({
         queryFn: async () => {
@@ -105,9 +107,9 @@ const EditBookPage = () => {
         queryKey: ['Genre',`${genre}`],
     });
 
-    console.log(bookDetails);
+    // console.log(bookDetails);
     // console.log(genreQuery);
-    // console.log(authorDetails);
+    console.log(authorDetails);
 
 
 
@@ -120,6 +122,14 @@ const EditBookPage = () => {
     if (isError) {
         return <div>Error fetching data</div>;
     }
+    if(!isAdmin){
+        return(
+            <div>
+                YOU CANNOT ACCESS ME :DDDDDDDD
+            </div>
+        )
+    }
+    
 
     return (
         <div>

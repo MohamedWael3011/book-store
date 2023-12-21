@@ -1,10 +1,10 @@
-import React from "react";
 import './NavAndFooter.css';
 import logo from "../../components/assets/logo.png"
 import search from "../../components/assets/MagnifyingGlass.svg"
 import cart from "../../components/assets/ShoppingCartSimple.svg"
-import user from "../../components/assets/UserCircle.svg"
+import LoginLogoutComp from '../Homepage/LoginLogoutComp';
 
+import { Link } from 'react-router-dom';
 
 const NavAdmin = () => {
     return (
@@ -33,11 +33,10 @@ const NavAdmin = () => {
                 <div className="Nav_icons">
                     <Link to='/cart'><img src={cart} /></Link>
                 </div>
-                <div className="Nav_icons">
-                    <a href=""><img src={user} /></a>
-                </div>
+                <LoginLogoutComp/>
+
             </div>
         </div>
     )
 }
-export default NavAdmin
+export default NavAdmin;

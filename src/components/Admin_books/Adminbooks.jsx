@@ -5,13 +5,19 @@ import './AdminBooks.css';
 import { getBooks } from "../../controller/BooksController.ts"
 import { useQuery } from "react-query";
 import AdminbooksRow from "./AdminbooksRow.jsx";
+import useIsAdmin from "../../hooks/useIsAdmin.js";
 
 const AdminBooks = () => {
+    const isAdmin = useIsAdmin();
 
     const { data: bookData } = useQuery({
         queryFn: getBooks,
         queryKey: ["books"]
     });
+
+    if(!isAdmin){
+        return(<div>YOU CANNOT ACCESS ME :DDDDD</div>)
+    }
     return (
         <>
             <Navbar />
