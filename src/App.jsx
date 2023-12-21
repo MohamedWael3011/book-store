@@ -11,7 +11,7 @@ import HomePage from "./components/Homepage/HomePage.jsx"
 import BookNotFound from "./components/Home/BookNotFound.jsx"
 import Cart from "./components/Cart/Cart.jsx"
 import Adminbooks from "./components/Admin_books/Adminbooks.jsx"
-
+import EditBookPage from "./components/Home/EditBookPage.jsx"
 function App() {
 
   return (
@@ -29,8 +29,8 @@ function App() {
     <Route path="/cart" element={<Cart/>}/>
     <Route path="/admin-books" element={<Adminbooks/>}/>
     <Route path="/admin-orders" element={<AdminOrders/>}/>
-    <Route path="/statistics" element={<Statistics/>}/>
-
+    <Route path="/admin-statistics" element={<Statistics/>}/>
+    <Route path="/admin-editbook/:bookid" element={<EditBookPage/>}/>
   </Routes>
 
   )

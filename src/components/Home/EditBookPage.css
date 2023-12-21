@@ -34,7 +34,7 @@
 
 .edit_book_cover{
     font-size: 2vw;
-    margin-bottom: 7vh;
+    margin-bottom: 2vh;
     margin-top: 1vh;
     font-family: Inria Serif;
 }
@@ -117,4 +117,7 @@
     color: gray;
     font-size: 1.5vw;
     font-family: Inria Serif;
+}
+.img_url_txtbox{
+    margin-bottom: 2vh;
 }

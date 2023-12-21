@@ -18,9 +18,9 @@ export async function getBooks() {
 }
 
 
-export async function editBooks(books:Books) {
+export async function editBooks(books: Books) {
     try {
-        const response = await axios.put(`${apiBaseUrl}/books/edit/books`, JSON.stringify(books), { headers:headers, withCredentials:false });
+        const response = await axios.put(`${apiBaseUrl}/books/edit/books`, books, { headers, withCredentials: false });
         return response.data;
     } catch (error) {
         console.error('Error editing book:', error);

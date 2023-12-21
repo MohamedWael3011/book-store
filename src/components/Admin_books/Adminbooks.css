@@ -1,134 +1,104 @@
-.PageTitle
-{
-    color: #000;
-
-font-family: Inria Serif;
-font-size: 46px;
-font-weight: 700;
-line-height: normal;
-text-decoration-line: underline;
-margin-left: 5vw;
-margin-top: 3vw;
+.AdminBookPage {
+    padding-right: 2vw;
 }
 
-.tableHeading
-{
+.PageTitle {
+    color: #000;
+
+    font-family: Inria Serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    margin-left: 5vw;
+    margin-top: 3vw;
+}
+
+.tableHeading {
     color: #000;
     padding-right: 3vw;
-font-family: Inria Serif;
-font-size: 32px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-align: left;
+    font-family: Inria Serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
 }
 
-.BookList{
-   
-    width: 1268px;
-    height: 1041px;
-    margin-left: 7.5vw;
+.BookList {
+    margin-left: 5.5vw;
     margin-top: 2vw;
-    position: absolute;
-   border: 3px solid #9D8B70;
-   border-radius: 40px;
-  background: #FFF;
+    border: 3px solid #9D8B70;
+    border-radius: 2vw;
+    background: #FFF;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
 }
 
-.bookTable
-{
- margin-left: 4vw;
- margin-top: 2vw;
- width: 924px;
-height: 865px;
+.bookTable {
+    margin-left: 4vw;
+    width: 75vw;
+
 }
 
-.tableData
-{
+.tableData {
     color: #000;
-    padding-top: 3.5vw;
-    padding-right: 3vw;
-   font-family: Inria Serif;
-   font-size: 24px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: normal;
-   text-align: left;
+    font-family: Inria Serif;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
 }
 
-.vLine
-{
-    border-left: 0.3vw solid #9D8B70;;
-    height:830px;
-    position: relative;
-    margin-left: 62vw;
-    margin-top: -52vw;
-   
-}
-
-.Trashpic
-{
+.Trashpic {
     position: relative;
     margin-left: 65vw;
     margin-top: -54vw;
-   
-}
-.tpic
-{
-    margin-bottom: 34px;
+
 }
 
+.tpic {}
 
-.etext
-{
+
+.etext {
     position: relative;
-  
+
     color: #000;
-   font-family: Inria Serif;
-   font-size: 24px;
-   font-weight: 400;
-   text-decoration-line: underline;
+    font-family: Inria Serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-decoration-line: underline;
 }
 
-.pic-text
-{
+.pic-text {
     display: flex;
-    gap:4vw;
+    gap: 4vw;
 }
 
-.loadmore
-{
+.loadmore {
     color: #413F3F;
-font-family: Inria Serif;
-font-size: 24px;
-font-weight: 400;
-text-decoration-line: underline;
-text-align: center;
+    font-family: Inria Serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-decoration-line: underline;
+    text-align: center;
 }
 
-.NewButton
-{
-    display: inline-flex;
-padding: 12px 164px 12px 165px;
-justify-content: center;
-align-items: center;
-border-radius: 40px;
-background: #9D8B70;
-position: absolute;
-margin-top:73vw ;
-margin-left: 32vw;
-color: #FFF;
-
-font-family: Inria Serif;
-font-size: 32px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-
+.NewButtonCont {
+    display: flex;
+    background: #9D8B70;
+    color: white;
+    width: 20vw;
+    height: 5vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    margin-top: 5vh;
+    margin-left: 40vw;
 }
-
-.Last
-{
-    margin-top: 80vw; 
+.NewButton{
+    width: 100%;
+    height: 100%;
+    font-size: 1vw;
 }
-

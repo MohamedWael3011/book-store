@@ -19,13 +19,6 @@ import { getBooks } from "../../controller/BooksController.ts"
 
 const BookPage = () =>{
     const navigate=useNavigate();
-    const [books, setBooks] = useState([
-        { book_cover: testbook, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:55 },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:65 },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:75 },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: 250, book_id:85 },
-        { book_cover: Cover, title: 'Moghamrat Anso rakam id 155', author: 'Anso', price: 250, book_id:155 }
-      ]);
     const [review, setReview] = useState([
         {username: 'Anso', content: "classic case of “i would never tolerate this mans behavior in real life,but i cant get enough of it in books” kind of romance's would say we should all form a support group,but im pretty sure that's what booktok has become by this point. lol.",rating:4.5},
         {username: 'Anso', content: "classic case of “i would never tolerate this mans behavior in real life,but i cant get enough of it in books” kind of romance's would say we should all form a support group,but im pretty sure that's what booktok has become by this point. lol.",rating:1}
@@ -62,7 +55,7 @@ const BookPage = () =>{
                                 <span className='author_user'>{specificBook.author.author_name}</span>
                             </div>
                             <div className='book_page_genre'>
-                                Genre: {specificBook.book_name}
+                                Genre: {specificBook.genre.name}
                             </div>
                             <div className='book_page_desc'>
                                 {specificBook.description}
