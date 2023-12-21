@@ -1,7 +1,10 @@
 
 export default function useUserDetails(){
-
-    const user = JSON.parse(localStorage.getItem("BookStoreUser"))
     
+    
+    let user = localStorage.getItem("BookStoreUser")
+    if (user !== null){
+        user =  JSON.parse(user)
+    }
     return [user];
 }

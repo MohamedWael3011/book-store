@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
 import Navbar from '../NavAndFooter/Navbar';
 import './EditBookPage.css';
 import Footer from '../NavAndFooter/Footer';
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { editBooks, deleteBooks, getBook } from '../../controller/BooksController';
 import { useQuery } from 'react-query';
 import { useEffect } from 'react';
+import { getGenreByName } from '../../controller/GenreController';
+import { getAuthorByName } from '../../controller/AuthorController';
 
 const EditBookPage = () => {
-    const navigator = useNavigate(); // Move useNavigate outside the component body
 
     const { bookid } = useParams();
 
@@ -66,9 +66,6 @@ const EditBookPage = () => {
         queryKey: [`book ${bookid}`],
     });
 
-
-    console.log(bookDetails);
-
     useEffect(() => {
         if (bookDetails) {
             setBookName(bookDetails.book_name);
@@ -79,9 +76,42 @@ const EditBookPage = () => {
             setStock(bookDetails.quantity_in_stock);
             setImage(bookDetails.image_url);
             setGenre(bookDetails.genre.name);
-            setAuthor(bookDetails.author.author_name);
+            setAuthor(bookDetails.author.name);
         }
     }, [bookDetails]);
+
+    const { data: authorDetails } = useQuery({
+        queryFn: async () => {
+            try {
+                const response = await getAuthorByName(author);
+                return response;
+            } catch (error) {
+                console.error('Error fetching book:', error);
+                throw error;
+            }
+        },
+        queryKey: [`Author`],
+    });
+    const { data: genreQuery} = useQuery({
+        queryFn: async () => {
+            try {
+                const response = await getGenreByName(genre);
+                return response;
+            } catch (error) {
+                console.error('Error fetching book:', error);
+                throw error;
+            }
+        },
+        queryKey: ['Genre',`${genre}`],
+    });
+
+    console.log(bookDetails);
+    // console.log(genreQuery);
+    // console.log(authorDetails);
+
+
+
+
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -113,7 +143,7 @@ const EditBookPage = () => {
                             <button
                                 type="submit"
                                 className="edit_book_page_buttons"
-                                onClick={() => editBooks({ book_name, description, num_sales, rates, price, quantity_in_stock, image_url, genre, author }, navigator)}
+                                onClick={() => editBooks({id:bookDetails.id, book_name, description, num_sales, rates, price, quantity_in_stock, image_url, genre:{id:genreQuery.id,name:genreQuery.name}, author:{author_id:authorDetails.id,name:authorDetails.name} })}
                             >
                                 Save Changes
                             </button>
