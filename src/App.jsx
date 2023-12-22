@@ -12,6 +12,8 @@ import BookNotFound from "./components/Home/BookNotFound.jsx"
 import Cart from "./components/Cart/Cart.jsx"
 import Adminbooks from "./components/Admin_books/Adminbooks.jsx"
 import EditBookPage from "./components/Home/EditBookPage.jsx"
+import AddBookPage from "./components/Home/AddBookPage.jsx"
+
 function App() {
 
   return (
