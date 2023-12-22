@@ -54,3 +54,13 @@ export async function register(user: UserDTO, navigate: any) {
 }
 
 
+
+export async function getCart(uid:number) {
+    try {
+        const response = await axios.get(`${apiBaseUrl}/user/cart`, { headers:headers, withCredentials:false,params:{user_id: uid} });
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        throw error;
+    }
+}

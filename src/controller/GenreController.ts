@@ -26,3 +26,6 @@ export async function getGenreByName(name:string) {
         throw error;
     }
 }
+
+
+

@@ -13,6 +13,7 @@ import Cart from "./components/Cart/Cart.jsx"
 import Adminbooks from "./components/Admin_books/Adminbooks.jsx"
 import EditBookPage from "./components/Home/EditBookPage.jsx"
 import AddBookPage from "./components/Home/AddBookPage.jsx"
+import AddGenre from "./components/AdminGenre_save/AddGenre.jsx"
 
 function App() {
 
@@ -54,6 +55,8 @@ function App() {
     <Route path="/admin-statistics" element={<Statistics/>}/>
     <Route path="/admin-editbook/:bookid" element={<EditBookPage/>}/>
     <Route path="/admin-addbook" element={<AddBookPage/>}/>
+    <Route path="/admin-addgenre" element={<AddGenre/>}/>
+
   </Routes>
 
 

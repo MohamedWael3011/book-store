@@ -14,15 +14,18 @@ import Book from '../../components/Home/Book';
 import { getBooks, getBook } from "../../controller/BooksController.ts"
 import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
+import { getCart } from "../../controller/UserController.ts";
+import useUserDetails from "../../hooks/useUserDetails.js";
 
 // import {useHistory} from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 
   const Cart = () => {
-    const {data:bookData} = useQuery({
-      queryFn: getBooks,
-      queryKey: ["books"]
+    const [user] = useUserDetails();
+    const {data:cartData} = useQuery({
+      queryFn:()=> getCart(11),
+      queryKey: [`cart ${user.id}`]
     });
 
     const location = useLocation();
@@ -31,9 +34,10 @@ import { useLocation } from "react-router-dom";
         queryFn: ()=>getBook(location.state.bookid),
         queryKey: [`book ${location.state.bookid}`] 
     });
+
+    console.log(cartData)
     
     const specificBook = bookDetails;
-    console.log(specificBook)
       const [items, setItems] = useState([]);
       const [orderAmount, setOrderAmount] = useState(0);
       const deliveryAmount = 50;
@@ -82,38 +86,6 @@ import { useLocation } from "react-router-dom";
     //     setItems(updatedItems);
     //   };
       
-      const book = {
-        book_cover: testbook,
-        author: 'Author',
-        title: 'Moghamrat Anso',
-        price: '250'
-      };
-    
-      const handlePlaceOrder = () => {
-    
-        setOrderId((prevOrderId) => prevOrderId + 1);
-      };
-      
-    const data = {
-        productData : [
-         
-            
-            {
-                id: "sdsa" ,
-                img: 'dsadsa',
-                title: 'King of Wrath',
-                desc: '',
-                price: 750
-            },
-            {
-                id: 3,
-                img: Book3,
-                title: 'It Ends With Us',
-                desc: '',
-                price: 450
-            }
-        ]
-    };
     
     const handleAddToCart = (item) => {
         const existingItem = items.find((i) => i.id === item.id);
@@ -180,11 +152,8 @@ import { useLocation } from "react-router-dom";
 </div> 
 
 
-{data.productData.map((book) => {
-  const item = items.find((i) => i.id === book.id);
-  const quantity = item ? item.quantity : 0;
+{bookDetails?.map((book) => {
 
-  return (
       <div className="AllItemsSection">
     <div className="items-section" key={book.id}>
       <div className="book-info">
@@ -220,7 +189,6 @@ import { useLocation } from "react-router-dom";
     </div>
 
   </div>
-  );
 })}
 
 
@@ -265,7 +233,7 @@ import { useLocation } from "react-router-dom";
       <div className="Suggest2"><a href = "">See All &gt; </a></div>
       </div>
       <div className="bookSuggestions">
-      {bookData?.map((book)=>{return (<Book key={book.id} book={book} className='book_cont'/>)})}
+      {cartData?.map((book)=>{return (<Book key={book.id} book={book} className='book_cont'/>)})}
         </div>
     </div>
     </div>

@@ -18,11 +18,12 @@ import { FaStar } from 'react-icons/fa';
 import useUserDetails from '../../hooks/useUserDetails.js';
 
 const BookPage = () => {
-    const queryClient = useQueryClient();
+    const navigate = useNavigate()
     const [user] = useUserDetails();
     const [reviewText, setReviewText] = useState('');
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
+    const queryClient = useQueryClient();
     const stars = Array(5).fill(0);
     const colors = {
         orange: '#ffd400',
@@ -52,17 +53,16 @@ const BookPage = () => {
         queryKey: ['books'],
     });
 
-    const { data: reviewData, refetch: refetchReviews } = useQuery({
+    const {data:reviewData} = useQuery({
         queryFn: () => getReviews(bookid),
         queryKey: [`reviews ${bookid}`],
     });
 
-    const { mutate: addReviewMutation } = useMutation((review) => addReview(review, bookid, user.id), {
-        onSuccess: () => {
-            refetchReviews();
-            setReviewText('');
-        },
-    });
+    const addReviewMutation  = useMutation(
+        {mutationFn:(review) => addReview(review, bookid, user.id),
+            onSuccess: ()=>queryClient.invalidateQueries([`reviews ${bookid}`])
+        
+        });
 
 
     const specificBook = bookDetails;
@@ -78,15 +78,8 @@ const BookPage = () => {
         const review = {
             review_content: reviewText,
             rating: currentValue,
-            book: specificBook,
-            user: user
         };
-
-        try {
-            await addReviewMutation(review);
-        } catch (error) {
-            console.error('Error submitting review:', error);
-        }
+        addReviewMutation.mutate(review)
     };
 
 

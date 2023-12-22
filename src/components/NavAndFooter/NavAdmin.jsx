@@ -17,7 +17,7 @@ const NavAdmin = () => {
                     <Link to='/admin-books' className='Nav_link'>Books</Link>
                 </div>
                 <div className="Nav_items">
-                    <Link to='/book-cat' className='Nav_link'>Genre</Link>
+                    <Link to='/admin-addgenre' className='Nav_link'>Genre</Link>
                 </div>
                 <div className="Nav_items">
                     <Link to='/admin-orders' className='Nav_link'>Orders</Link>
