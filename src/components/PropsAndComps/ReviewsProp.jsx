@@ -1,21 +1,21 @@
 import './ReviewsProp.css'
 import React from 'react';
+import('../../interfaces/Review')
 
 import star from '../../components/assets/star.svg'
 
-const ReviewsProp = (props) => {
-    const { username, content, rating} = props.review;
-  
+const ReviewsProp = ({review}) => {
+
     return (
         <div className='review_main_cont'>
-            <span className='username_cont'>{username}</span>
+            <span className='username_cont'>{review.user.username}</span>
             <div className='likes_content_cont'>
-                <p className='review_content'>{content}</p>
+                <p className='review_content'>{review.review_content}</p>
                 <div className='rating_cont'>
                     <div className='star_cont'>
                         <img src={star}/>
                     </div>
-                    <span className='rating_num'>{rating}</span>
+                    <span className='rating_num'>{review.rating}</span>
                 </div>
             </div>
         </div>
