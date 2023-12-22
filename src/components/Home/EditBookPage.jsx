@@ -2,6 +2,9 @@ import Navbar from '../NavAndFooter/Navbar';
 import './EditBookPage.css';
 import Footer from '../NavAndFooter/Footer';
 import { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 import { useParams } from 'react-router-dom';
 import { editBooks, deleteBooks, getBook } from '../../controller/BooksController';
 import { useQuery } from 'react-query';
@@ -9,6 +12,7 @@ import { useEffect } from 'react';
 import { getGenreByName } from '../../controller/GenreController';
 import { getAuthorByName } from '../../controller/AuthorController';
 import useIsAdmin from '../../hooks/useIsAdmin';
+
 
 const EditBookPage = () => {
 

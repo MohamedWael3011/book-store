@@ -12,10 +12,32 @@ import BookNotFound from "./components/Home/BookNotFound.jsx"
 import Cart from "./components/Cart/Cart.jsx"
 import Adminbooks from "./components/Admin_books/Adminbooks.jsx"
 import EditBookPage from "./components/Home/EditBookPage.jsx"
+import AddBookPage from "./components/Home/AddBookPage.jsx"
+
 function App() {
 
   return (
     
+
+    // <><Routes>
+    //   <Route path="/login" element={<Login/>}/>
+    //   <Route path="/register" element={<Signup/>}/>
+    // </Routes>
+    // <div>
+    //   {/*    <Statistics/>   */}
+    //   {/* <AdminBooks/> */}
+
+    //     {/* <Homepage/> */}
+
+    //     <EditBookPage/>
+
+    //     {/* <UsersOrders/> */}
+   
+
+    //     {/* <Cart/> */}
+    // </div>
+    //  </>
+
   <Routes>
     <Route path="/" element={<Navigate to="/register" />} index/>
     <Route path="/login" element={<Login/>}/>
@@ -32,6 +54,7 @@ function App() {
     <Route path="/admin-statistics" element={<Statistics/>}/>
     <Route path="/admin-editbook/:bookid" element={<EditBookPage/>}/>
   </Routes>
+
 
   )
 }
