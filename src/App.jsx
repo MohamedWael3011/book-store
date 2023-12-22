@@ -45,7 +45,7 @@ function App() {
 
         {/* <Homepage/> */}
 
-      <AddGenre/>
+        <EditBookPage/>
 
         {/* <UsersOrders/> */}
    

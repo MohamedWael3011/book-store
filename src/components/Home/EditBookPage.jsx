@@ -4,7 +4,7 @@ import testbook from '../../components/assets/testbook.jpg';
 import './EditBookPage.css'
 import Footer from '../NavAndFooter/Footer';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const EditBookPage = () => {
 
     const navigator = useNavigate()
