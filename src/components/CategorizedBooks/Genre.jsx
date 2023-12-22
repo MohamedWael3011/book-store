@@ -5,8 +5,8 @@ const Genre = (props) => {
   const { genre } = props.genre;
 
   return (
-    <div className='genrelist'>   
-        <h4 className='genrename'>{genre}</h4>
+    <div className='genrelistgenre'>   
+        <span className='genrename'>{genre}</span>
     </div>
 );
 }

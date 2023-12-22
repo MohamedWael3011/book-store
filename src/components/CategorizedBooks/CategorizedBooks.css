@@ -28,25 +28,35 @@ margin-top: 2vw;
 
 .genrelist
 {
-display: block;
 background: #F7F1F0;
 width: 18vw ;
-
 margin-left: 7vw;
 border-radius: 20px;
-
-
 margin-top:3vw;
-margin-bottom: 4vw ;
+margin-bottom: 40vh ;
 position: relative;
 
 }
 .ay7aga{
+    display: flex;
+    flex-direction: column;
     border-radius: 20px;
     border-width: 0.5VW;
-border-style: solid;
-border-color: #9D8B70;
-height: 42vw;
+    border-style: solid;
+    border-color: #9D8B70;
+    height: 42vw;
+    padding: 0;
+}
+
+.genrelistcontainer{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border-width: 0.5VW;
+    border-style: solid;
+    border-color: #9D8B70;
+    height: 42vw;
+    padding: 0;
 }
 .genreee{
     display: flex;
