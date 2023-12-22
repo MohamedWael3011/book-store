@@ -1,24 +1,24 @@
+/* eslint-disable react/prop-types */
 import './Book.css';
-import React from 'react';
 import {Link} from 'react-router-dom'
+import('../../interfaces/Books')
 
+const Book = ({book}) => {
 
-const Book = (props) => {
-  const { book_cover, title, author, price } = props.book;
 
   return (
-    <div className='book_cont'>
-      <Link to=''>
+    <div className='book_cont '>
+      <Link to={`/book/${book.id}`}>
         <div className='book_cover' >
-            <img src={book_cover} className='book_cover_img'/>
+            <img src={book.image_url} className='book_cover_img'/>
         </div>
       </Link>
-        <h3 className="book_title">{title}</h3>
+        <h3 className="book_title">{book.book_name}</h3>
         <div className="author_price_container">
-          <span className="author">{author}</span>
-          <div>
-              <span className="price">{price}</span>
-              <span className='currency'>EGP</span>
+          <span className="author text-black whitespace-nowrap">{book.author.author_name}</span>
+          <div className='price_currency_cont'>
+              <span className="book_price_book">{book.price}</span>
+              <span className='currency_book'>EGP</span>
           </div>
         </div>
     </div>

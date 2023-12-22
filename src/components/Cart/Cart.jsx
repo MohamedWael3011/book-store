@@ -10,129 +10,146 @@ import BackButton from '../BackButton/BackButton';
 import Book1 from  '../../components/assets/Book1.png';
 import Book2 from  '../../components/assets/Book2.png';
 import Book3 from  '../../components/assets/Book3.png';
+import Book from '../../components/Home/Book';
+import { getBooks, getBook } from "../../controller/BooksController.ts"
+import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
+
 // import {useHistory} from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-const Cart = () => {
-  const [items, setItems] = useState([]);
-  const [orderAmount, setOrderAmount] = useState(0);
-  const deliveryAmount = 50;
-  const id = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const totalAmount = orderAmount + deliveryAmount;
-  const [totalBooks, setTotalBooks] = useState(0);
-  const [orderId, setOrderId] = useState(1);
-  // const history = useHistory();
 
-  const handleIncrement = () => {
-  setQuantity(quantity + 1);
-  setTotalPrice(price * (quantity + 1));
-};
-  
-// const handleIncrement = (item) => {
-//     const updatedItems = items.map((i) => {
-//       if (i.id === item.id) {
-//         return { ...i, quantity: i.quantity + 1 };
-//       }
-//       return i;
-//     });
-//     setItems(updatedItems);
-//   };
+  const Cart = () => {
+    const {data:bookData} = useQuery({
+      queryFn: getBooks,
+      queryKey: ["books"]
+    });
 
-  const handleDecrement = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-      setTotalPrice(price * (quantity - 1));
-    }
-  };
+    const location = useLocation();
     
-  // const handlePlaceOrder = () => {
-  //   // Pass the subtotal as a query parameter to the Delivery page
-  //   history.push("./components/Delivery/DeliveryForm?subtotal="+{orderAmount});
-  // };
-
-// const handleDecrement = (item) => {
-//     const updatedItems = items.map((i) => {
-//       if (i.id === item.id && i.quantity > 0) {
-//         return { ...i, quantity: i.quantity - 1 };
-//       }
-//       return i;
-//     });
-//     setItems(updatedItems);
-//   };
-  
-  const book = {
-    book_cover: testbook,
-    author: 'Author',
-    title: 'Moghamrat Anso',
-    price: '250'
-  };
-
-  const handlePlaceOrder = () => {
-
-    setOrderId((prevOrderId) => prevOrderId + 1);
-  };
-  
-const data = {
-    productData : [
-        {
-            id: 1,
-            img: Book1,
-            title: 'Twisted Hate',
-            desc: '',
-            price: 250
-        },
-        {
-            id: 2,
-            img: Book2,
-            title: 'King of Wrath',
-            desc: '',
-            price: 750
-        },
-        {
-            id: 3,
-            img: Book3,
-            title: 'It Ends With Us',
-            desc: '',
-            price: 450
+    const {data:bookDetails} = useQuery({
+        queryFn: ()=>getBook(location.state.bookid),
+        queryKey: [`book ${location.state.bookid}`] 
+    });
+    
+    const specificBook = bookDetails;
+    console.log(specificBook)
+      const [items, setItems] = useState([]);
+      const [orderAmount, setOrderAmount] = useState(0);
+      const deliveryAmount = 50;
+      const id = useState(0);
+      const [totalPrice, setTotalPrice] = useState(0);
+      const totalAmount = orderAmount + deliveryAmount;
+      const [totalBooks, setTotalBooks] = useState(0);
+      const [orderId, setOrderId] = useState(1);
+      
+      // const history = useHistory();
+    
+      const handleIncrement = () => {
+      setQuantity(quantity + 1);
+      setTotalPrice(price * (quantity + 1));
+    };
+      
+    // const handleIncrement = (item) => {
+    //     const updatedItems = items.map((i) => {
+    //       if (i.id === item.id) {
+    //         return { ...i, quantity: i.quantity + 1 };
+    //       }
+    //       return i;
+    //     });
+    //     setItems(updatedItems);
+    //   };
+    
+      const handleDecrement = () => {
+        if (quantity > 0) {
+          setQuantity(quantity - 1);
+          setTotalPrice(price * (quantity - 1));
         }
-    ]
-};
-
-const handleAddToCart = (item) => {
-    const existingItem = items.find((i) => i.id === item.id);
-    if (existingItem) {
-      const updatedItems = items.map((i) => {
-        if (i.id === item.id) {
-          return { ...i, quantity: i.quantity + 1 };
+      };
+        
+      // const handlePlaceOrder = () => {
+      //   // Pass the subtotal as a query parameter to the Delivery page
+      //   history.push("./components/Delivery/DeliveryForm?subtotal="+{orderAmount});
+      // };
+    
+    // const handleDecrement = (item) => {
+    //     const updatedItems = items.map((i) => {
+    //       if (i.id === item.id && i.quantity > 0) {
+    //         return { ...i, quantity: i.quantity - 1 };
+    //       }
+    //       return i;
+    //     });
+    //     setItems(updatedItems);
+    //   };
+      
+      const book = {
+        book_cover: testbook,
+        author: 'Author',
+        title: 'Moghamrat Anso',
+        price: '250'
+      };
+    
+      const handlePlaceOrder = () => {
+    
+        setOrderId((prevOrderId) => prevOrderId + 1);
+      };
+      
+    const data = {
+        productData : [
+         
+            
+            {
+                id: "sdsa" ,
+                img: 'dsadsa',
+                title: 'King of Wrath',
+                desc: '',
+                price: 750
+            },
+            {
+                id: 3,
+                img: Book3,
+                title: 'It Ends With Us',
+                desc: '',
+                price: 450
+            }
+        ]
+    };
+    
+    const handleAddToCart = (item) => {
+        const existingItem = items.find((i) => i.id === item.id);
+        if (existingItem) {
+          const updatedItems = items.map((i) => {
+            if (i.id === item.id) {
+              return { ...i, quantity: i.quantity + 1 };
+            }
+            return i;
+          });
+          setItems(updatedItems);
+        } else {
+          setItems([...items, { ...item, quantity: 1 }]);
         }
-        return i;
-      });
-      setItems(updatedItems);
-    } else {
-      setItems([...items, { ...item, quantity: 1 }]);
-    }
-    setOrderAmount((prevAmount) => prevAmount + item.price);
-    setTotalBooks((prevTotal) => prevTotal + 1);
-  };
-  
-  const handleRemoveFromCart = (item) => {
-    const existingItem = items.find((i) => i.id === item.id);
-    if (existingItem.quantity > 1) {
-      const updatedItems = items.map((i) => {
-        if (i.id === item.id) {
-          return { ...i, quantity: i.quantity - 1 };
+        setOrderAmount((prevAmount) => prevAmount + item.price);
+        setTotalBooks((prevTotal) => prevTotal + 1);
+      };
+      
+      const handleRemoveFromCart = (item) => {
+        const existingItem = items.find((i) => i.id === item.id);
+        if (existingItem.quantity > 1) {
+          const updatedItems = items.map((i) => {
+            if (i.id === item.id) {
+              return { ...i, quantity: i.quantity - 1 };
+            }
+            return i;
+          });
+          setItems(updatedItems);
+        } else {
+          const updatedItems = items.filter((i) => i.id !== item.id);
+          setItems(updatedItems);
         }
-        return i;
-      });
-      setItems(updatedItems);
-    } else {
-      const updatedItems = items.filter((i) => i.id !== item.id);
-      setItems(updatedItems);
-    }
-    setOrderAmount((prevAmount) => prevAmount - item.price);
-    setTotalBooks((prevTotal) => prevTotal - 1);
-  };
+        setOrderAmount((prevAmount) => prevAmount - item.price);
+        setTotalBooks((prevTotal) => prevTotal - 1);
+      };
+    
 
   return (
     <div>
@@ -248,18 +265,7 @@ const handleAddToCart = (item) => {
       <div className="Suggest2"><a href = "">See All &gt; </a></div>
       </div>
       <div className="bookSuggestions">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div className="bookSuggestion" key={index}>
-              <img className="bookCover" src={book.book_cover} alt="Book Cover" />
-              <div className="bookTitle">{book.title}</div>
-              <div className="last-row">
-  
-              <div className="bookAuthor">{book.author}</div>
-              <div className="bookPrice">{book.price} EGP</div>
-  
-              </div>              
-            </div>
-          ))}
+      {bookData?.map((book)=>{return (<Book key={book.id} book={book} className='book_cont'/>)})}
         </div>
     </div>
     </div>

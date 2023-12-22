@@ -1,10 +1,9 @@
 .Nav_container{
     display: flex;
     align-items: center;
-    width: 100%;
     height: 15vh;
     background-color: #9D8B70;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 0;
     left: 0;
 }
@@ -13,10 +12,10 @@
     display: flex;
     justify-content: center;
     top: 0;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 20%;
-    height: 20%;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 20vw;
+    height: 10vh;
     align-items: center;
 }
 
@@ -24,8 +23,8 @@
     font-family: Inria Serif;
     width: 7vw;
     color: white;
-    font-size: 180%;
-    margin-right: 2%;
+    font-size: 1.5vw;
+    margin-right: 0.5vw;
     line-height: normal;
 }
 
@@ -39,12 +38,13 @@
 .Nav_icons_container{
     width: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-right: 0.8rem;
 }
 
 .Nav_icons{
-    width: 25%;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,38 +59,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     bottom: 0; 
-     width: 100%;
-    height: 30vh;
     background-color: #9D8B70; 
     justify-content: space-around;
+    margin-top: 10vh;
     margin-bottom: 0;
-    height: 324px;
-    flex-shrink: 0;
+    padding-left: 2vw;
+    padding-right: 2vw;
+
 }
 
 .footer-logo {
-    width: 309px;
-    height: 96px;
-    flex-shrink: 0;
+    width: 30vw;
+    height: 30vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    margin-left: 40px;
+    gap: 2vw;
 }
-
+.footer-logo img{
+    max-width: 100%;
+    max-height: 100%;
+}
 .footer-links {
     display: flex;
     list-style: none;
-    gap: 50px;
+    gap: 5vw;
     color: black;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 .footer-icons {
-    padding: 10px;
-    padding-bottom: 6px;
+    padding: 1vw;
 }
 
 
@@ -98,18 +98,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 3vw;
+    margin-bottom: 3vh;
     color: black;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 
 .footer-copyright hr {
     width: 80%;
     border: none;
-    border-radius: 10px;
-    height: 3px;
+    border-radius: 1vw;
+    height: 0.3vh;
     background: grey;
 }
 
@@ -124,8 +124,8 @@
 .footerIcons {
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: 1.7vw;
+    height: 1.7vw;
     flex-shrink: 0;
 }
 
@@ -137,7 +137,7 @@
 .right-text {
     color: #FFF;
     font-family: Inria Serif;
-    font-size: 24px;
+    font-size: 1.3vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -147,19 +147,17 @@
 }
 
 .inputText{
-    display: inline-flex;
     padding: 11px 130px 11px 25px;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 2vw;
     border: 1px solid #FFF;
-    margin-top: 40px;
     margin-bottom: 0;
 }
 
 .inputText input[type="text"]{
     color: #FFF;
     font-family: Inria Serif;
-    font-size: 20px;
+    font-size: 1vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -168,17 +166,17 @@
 .text-2xl {
     color: #FFF;
     font-family: Inria Serif;
-    font-size: 24px;
+    font-size: 1vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 441px;
+    width: 20vw;
 }
 
 .text-1xl {
     color: #e4dbdb;
     font-family: Inria Serif;
-    font-size: 18px;
+    font-size: 0.9vw;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -186,28 +184,32 @@
 }
 
 .bottomcentre {
-    margin-top: 42px;
+    margin-top: 2.5vh;
+    width: 30vw;
 }
 
 .footerItems {
     color: #FFF;
     font-family: Inria Serif;
-    font-size: 24px;
+    font-size: 1.3vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-right: 2vw;
+}
+
+.footerItems:hover {
     text-decoration-line: underline;
-    margin-right: 50px;
 }
 
 .center-footer {
     margin-left: 0;
+    margin-top: 5vh;
 }
 
 .vertical-line {
-    width: 1px;
-    height: 280px;
+    width: 0.01vw;
+    height: 25vh;
     background: #FFF;
-    margin-left: 70px;
     margin-right: 0;
 }

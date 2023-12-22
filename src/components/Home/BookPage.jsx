@@ -2,27 +2,48 @@ import BackButtonWhite from '../BackButton/BackButtonWhite'
 import Footer from '../NavAndFooter/Footer'
 import Navbar from '../NavAndFooter/Navbar'
 import Cover from '../assets/book_cover_test.png'
+import testbook from '../assets/testbook.jpg'
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Book from './Book';
 import './BookPage.css'
 import ReviewsProp from '../PropsAndComps/ReviewsProp';
 import star from '../../components/assets/star.svg'
 import StarRatingAndReview from '../PropsAndComps/StarRatingAndReview';
+import { useNavigate, useParams } from 'react-router-dom';
+import BookNotFound from '../Home/BookNotFound'
+import { getBook } from '../../controller/BooksController'
+import { useQuery } from 'react-query'
+import { Link } from 'react-router-dom'
+import { getBooks } from "../../controller/BooksController.ts"
 
 const BookPage = () =>{
-    const [books, setBooks] = useState([
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: '250' },
-        { book_cover: Cover, title: 'Moghamrat Anso', author: 'Anso', price: '250' }
-      ]);
+    const navigate=useNavigate();
     const [review, setReview] = useState([
         {username: 'Anso', content: "classic case of “i would never tolerate this mans behavior in real life,but i cant get enough of it in books” kind of romance's would say we should all form a support group,but im pretty sure that's what booktok has become by this point. lol.",rating:4.5},
         {username: 'Anso', content: "classic case of “i would never tolerate this mans behavior in real life,but i cant get enough of it in books” kind of romance's would say we should all form a support group,but im pretty sure that's what booktok has become by this point. lol.",rating:1}
 
     ])
-      
+    
+    const {bookid} = useParams()
+    const {data:bookDetails} = useQuery({
+        queryFn: ()=>getBook(bookid),
+        queryKey: [`book ${bookid}`] 
+    });
+    
+    const {data:bookData} = useQuery({
+        queryFn: getBooks,
+        queryKey: ["books"]
+    });
+    
+    const specificBook = bookDetails;
+
+  
+    if (!specificBook) {
+        return <div><BookNotFound/></div>;
+      }
+
+
     return(
         <div>
             <Navbar/>
@@ -30,28 +51,24 @@ const BookPage = () =>{
                     <div className='book_page_secondary_container'>
                         <div className='book_page_details_user'>
                             <div className='book_page_title_author'>
-                                <span className='title_user'>Twisted love</span>
-                                <span className='author_user'>ANA HUANG</span>
+                                <span className='title_user'>{specificBook.book_name}</span>
+                                <span className='author_user'>{specificBook.author.author_name}</span>
                             </div>
                             <div className='book_page_genre'>
-                                Genre: romantic
+                                Genre: {specificBook.genre.name}
                             </div>
                             <div className='book_page_desc'>
-                                He has a heart of ice…but for her, he’d burn the world.
-                                Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.
-                                Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart.
-                                But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest:
-                                A crack.A melt.A fire that could end his world as he knew it.
+                                {specificBook.description}
                             </div>
                             <div className='book_page_price'>
-                                PRICE: <span className='book_page_price_text'></span> EGY
+                                PRICE: <span className='book_page_price_text'>{specificBook.price}</span> EGY
                             </div>
                             <div className='book_page_user_buttons'>
-                                <button type="submit" className="add_cart">Add to cart</button>
+                                <button  onClick={()=>navigate('/cart', {state:{bookid}})} className="add_cart">Add to cart</button>
                             </div>
                         </div>
                         <div className='book_page_cover_cont_user'>
-                            <img src={Cover} className='img_cont'/>
+                            <img src={specificBook.image_url} className='img_cont'/>
                             <div className='rectangle_user'>
                                  <div className='back_button_container'>
                                     <BackButtonWhite/>
@@ -66,7 +83,7 @@ const BookPage = () =>{
                                     About author:
                                 </span>
                                 <span className='author_name_desc'>
-                                    Ana Huang
+                                    {specificBook.author.author_name}
                                 </span>
                             </div>
                             <div className='desc_cont'>
@@ -75,11 +92,7 @@ const BookPage = () =>{
                             </div>
                         </div>
                         <div className='book_recommendations'>
-                            <Book book={books[0]} className='book_cont'/>
-                            <Book book={books[1]} className='book_cont'/>
-                            <Book book={books[2]} className='book_cont'/>
-                            <Book book={books[3]} className='book_cont'/>
-                            <Book book={books[4]} className='book_cont'/>
+                        {bookData?.map((book)=>{return (<Book key={book.id} book={book} className='book_cont'/>)})}
                         </div>
                     </div>
                     <div className='reviews_title_rating_sales_cont'>
@@ -88,7 +101,7 @@ const BookPage = () =>{
                         </span>
                         <div className='sales_rating_main_cont'>
                             <span className='sales_rating_cont'>
-                                Sales: 21322
+                                Sales: {specificBook.sales}
                             </span>
                             <span className='sales_rating_cont'>
                                 Rating:

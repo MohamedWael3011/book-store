@@ -3,6 +3,7 @@ import logo from "../../components/assets/logo.png"
 import facebook from "../../components/assets/FacebookLogo.png"
 import insta from "../../components/assets/InstagramLogo.png"
 import twitter from "../../components/assets/Vector.png"
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
         // const [emailAdr, setEmailAdr] = React.useState({
@@ -43,15 +44,10 @@ const Footer = () => {
                   <p className='text-2xl'>Let's replace the email address with the trending books</p>
                   <p className='text-1xl'>Information on the latest releases, book reviews and confidential promotional codes</p>
                   <div className='bottomcentre'>
-                <a className='footerItems' href = "#">Genres</a>
-                <a className='footerItems' href = "#">About us</a>
-                <a className='footerItems'href = "#">Our policies</a>
+                <Link to='/book-cat' className='footerItems'>Genre</Link>
+                <Link to='/delivery-form' className='footerItems'>Delivery</Link>
+                <Link to='/previous-orders' className='footerItems'>Previous Orders</Link>
                 </div>
-                <div className='bottomcentre'>
-                <a className='footerItems'href = "#">Delivery</a>
-                <a className = 'footerItems' href = "#">Payments</a>
-                <a className='footerItems'href = "#">Previous Orders</a>
-               </div>
                 </div>
                 </div>
                

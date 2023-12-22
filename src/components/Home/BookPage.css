@@ -8,6 +8,7 @@
     height: 100vh;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5vw;
 }
 
 .book_page_details_user{
@@ -25,10 +26,13 @@
     justify-content: left;
     width: 30vw;
     margin-bottom: 3vh;
+    margin-right: 13vw;
 }
 
 .title_user{
-    font-size: 3.5vw;
+    line-height: normal;
+    white-space: nowrap ;
+    font-size: 3.2vw;
     margin-right: 1.5vw;
 }
 
@@ -87,7 +91,7 @@
     height: 5vh;
     color: #FFF;
     font-family: Inria Serif;
-    font-size: 28px;
+    font-size: 1.5vw;
     font-style: normal;
     font-weight: 700;
     line-height:normal;
@@ -96,7 +100,6 @@
     position: relative;
     display: flex;
     justify-content: right;
-    width: 50vw;
     height: 80vh;
     top: 0;
   }
@@ -122,7 +125,6 @@
   }
   
   .img_cont {
-    object-fit: cover;
     box-shadow: 0px 4px 10px 0px rgba(102, 65, 0, 0.29), 0px 17px 17px 0px rgba(102, 65, 0, 0.26), 0px 39px 23px 0px rgba(102, 65, 0, 0.15), 0px 70px 28px 0px rgba(102, 65, 0, 0.04), 0px 109px 30px 0px rgba(102, 65, 0, 0.01);
     z-index: 2;
     width: 25vw;

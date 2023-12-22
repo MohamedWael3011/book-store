@@ -8,7 +8,7 @@ import Navbaradmin from "../../components/NavAndFooter/NavAdmin"
 import Fotterr from "../../components/NavAndFooter/Footer.jsx"
 
 import Genre_txt from './Genre_txt.jsx';
-import { register } from '../controller/UserController';import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Footer from "../NavAndFooter/Footer.jsx";
 const AddGenre = () => {
 
