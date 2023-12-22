@@ -17,7 +17,7 @@ export async function getReviews(bookid:number) {
     }
 }
 
-export async function addReview(review, bookid, userid) {
+export async function addReview(review: Review, bookid:number, userid:number) {
     try {
       const response = await axios.post(`${apiBaseUrl}/review/add`, review, { headers, withCredentials: false, params: { user_id: userid, book_id: bookid } });
       console.log(response.data);

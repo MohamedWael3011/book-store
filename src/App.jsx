@@ -53,6 +53,7 @@ function App() {
     <Route path="/admin-orders" element={<AdminOrders/>}/>
     <Route path="/admin-statistics" element={<Statistics/>}/>
     <Route path="/admin-editbook/:bookid" element={<EditBookPage/>}/>
+    <Route path="/admin-addbook" element={<AddBookPage/>}/>
   </Routes>
 
 
