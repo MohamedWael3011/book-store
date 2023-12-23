@@ -15,8 +15,8 @@ const AdminBooks = () => {
         queryKey: ["books"]
     });
 
-    if(!isAdmin){
-        return(<div>YOU CANNOT ACCESS ME :DDDDD</div>)
+    if (!isAdmin) {
+        return (<div>YOU CANNOT ACCESS ME :DDDDD</div>)
     }
     return (
         <>
@@ -31,7 +31,7 @@ const AdminBooks = () => {
                     </table>
                 </div>
                 <div className="NewButtonCont">
-                    <button type="submit" className="NewButton" >Add new books</button>
+                    <Link to='/admin-addbook' className="NewButton" >Add new books</Link>
                 </div>
             </div>
             <Footer />

@@ -131,3 +131,14 @@
     font-size: 1.5vw;
     font-family: Inria Serif;
 }
+
+.input_book_details_img{
+    font-size: 1.25vw;
+    font-family: Inria Serif;
+    width: 20vw;
+    height: 1.75vw;
+    border-radius: 1.5vw;
+    padding-left:1vw;
+    padding-right:1vw;
+    margin-bottom: 3vh;
+}
