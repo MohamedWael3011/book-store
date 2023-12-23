@@ -48,3 +48,13 @@ export async function getBook(bookid:number) {
         throw error;
     }
 }
+
+export async function getBookByGenre(genreName:string) {
+    try {
+        const response = await axios.get(`${apiBaseUrl}/books/all`, { headers:headers, withCredentials:false,params: {genre_name:genreName} });
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching book:', error);
+        throw error;
+    }
+}

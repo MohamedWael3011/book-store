@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useParams } from 'react-router-dom';
 import { editBooks, deleteBooks, getBook } from '../../controller/BooksController';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { useEffect } from 'react';
 import { getGenreByName } from '../../controller/GenreController';
 import { getAuthorByName } from '../../controller/AuthorController';
@@ -86,8 +86,8 @@ const EditBookPage = () => {
         }
     }, [bookDetails]);
 
-    const { data: authorDetails } = useQuery({
-        queryFn: async () => {
+    const authorDetails  = useMutation({
+        mutationFn:  async (author) => {
             try {
                 const response = await getAuthorByName(author);
                 return response;
@@ -96,10 +96,9 @@ const EditBookPage = () => {
                 throw error;
             }
         },
-        queryKey: [`Author`,`book ${bookid}`],
     });
-    const { data: genreQuery} = useQuery({
-        queryFn: async () => {
+    const genreQuery = useMutation({
+        mutationFn: async (genre) => {
             try {
                 const response = await getGenreByName(genre);
                 return response;
@@ -108,12 +107,11 @@ const EditBookPage = () => {
                 throw error;
             }
         },
-        queryKey: ['Genre',`${genre}`],
     });
 
     // console.log(bookDetails);
     // console.log(genreQuery);
-    console.log(authorDetails);
+    // console.log(authorDetails);
 
 
 
@@ -157,7 +155,12 @@ const EditBookPage = () => {
                             <button
                                 type="submit"
                                 className="edit_book_page_buttons"
-                                onClick={() => editBooks({id:bookDetails.id, book_name, description, num_sales, rates, price, quantity_in_stock, image_url, genre:{id:genreQuery.id,name:genreQuery.name}, author:{author_id:authorDetails.id,name:authorDetails.name} })}
+                                onClick={async() => {
+                                    const AuthorInfo = await authorDetails.mutateAsync(author)
+                                    const GenreInfo = await genreQuery.mutateAsync(genre)
+
+                                    console.log(AuthorInfo)
+                                    editBooks({id:bookDetails.id, book_name, description, num_sales, rates, price, quantity_in_stock, image_url, genre:{id:GenreInfo.id,name:GenreInfo.name}, author:{author_id:AuthorInfo.id,name:AuthorInfo.name} })}}
                             >
                                 Save Changes
                             </button>

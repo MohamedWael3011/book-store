@@ -4,15 +4,10 @@ import './HomePage.css';
 import Bookdisc from '../../components/assets/disbook.jpg'
 import DiscountImg from '../../components/assets/DiscountPartImg.jpg'
 import Fiximgslide from '../../components/assets/slideimghome.png';
-import CatePic from '../../components/assets/horrorCat.png';
 import authourpic from '../../components/assets/colleen-hoover1-removebg-preview 1.png';
-import { useEffect, useState } from 'react';
 import Book from "../Home/Book.jsx";
-import GenreCard from "../Homepage/GenreCard.jsx";
-import Cover from "../assets/book_cover_test.png"
 import {  useQuery } from "react-query";
-import { getBooks } from "../../controller/BooksController.ts"
-import { getGenres } from "../../controller/GenreController.ts";
+import { getBookByGenre, getBooks } from "../../controller/BooksController.ts"
 
 const HomePage = () => {
 
@@ -21,11 +16,22 @@ const {data:bookData} = useQuery({
     queryKey: ["books"]
 });
 
-const {data:genreData} = useQuery({
-    queryFn: getGenres,
-    queryKey: ["genres"]
-});
+
       
+const {data:horrorBooks} = useQuery({
+    queryFn:async  () => {
+      try {
+        const response = await getBookByGenre('Horror');
+        return response;
+      } catch (error) {
+        console.error("Error fetching book:", error);
+        throw error;
+      }
+    },
+  });
+
+  console.log(horrorBooks)
+
 return(
    
     <div className="HomePageStylee">
@@ -46,7 +52,7 @@ return(
         </div>
      
 
-        <div className="booksrowHome"> 
+        <div className="booksrowHome overflow-auto pb-5"> 
             {bookData?.map((book)=>
                 { 
                    return (<Book key={book.id} book={book} className='book_cont'/>)}
@@ -58,7 +64,7 @@ return(
             <h3 className="headinggs">For You</h3>
             <h3 className="seeall">See All </h3>
         </div>
-        <div className="booksrowHome"> 
+        <div className="booksrowHome overflow-auto pb-5"> 
         {bookData?.map((book)=>
                 { 
                    return (<Book key={book.id} book={book} className='book_cont'/>)}
@@ -73,15 +79,7 @@ return(
             <img src={authourpic} alt="image" className="mt-[-150px]" /> 
             </div>
 
-        
-        <div className="genresPart">
-            <h3 className="headinggs">Genres</h3>
-            <h3 className="seeall">See All</h3>
-            {genreData?.map((genre)=>
-                { 
-                   return (<GenreCard key={genre.id} genre={genre} />)}
-            )}
-        </div>
+
 
         <div className="CategoryRow"> 
 
@@ -102,15 +100,14 @@ return(
 
         <div className="childrenPart">
         <div>
-            <h3 className="childrenheading">{" Childrens'"}</h3>
-            <h3 className="seeall">See All </h3>
+            <h3 className="childrenheading">{" Horror Books"}</h3>
         </div>
-        <div className="childBooks">
-        </div>
-        <div className="childBooks">
-        </div>
-        <div className="childBooks">
-        </div>
+{horrorBooks?.map(b => {
+    return(<div key={b.id} className="childBooks">
+        <Book book={b}/>
+</div>)
+})        }
+
         
         </div>
         

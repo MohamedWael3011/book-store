@@ -32,6 +32,7 @@ const Footer = () => {
         //     }
           
             return (
+                <div className='bottom-0 left-0 h-fit'>
         <div className='footer'>
             <div className='footer-logo'>
                 <img src = {logo} className='logo' alt = "Logo"/>
@@ -82,6 +83,7 @@ const Footer = () => {
         
                 </div> 
             </div>
+        </div>
         </div>
     )
 }

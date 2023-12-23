@@ -2,16 +2,16 @@ import './OrderItem.css';
 import React from 'react';
 
 const OrderItem = (props) => {
-  const {book_name, quantity, price} = props.items;
+  const {order_id, username, price} = props.items;
 
 return(
     <div className='orderitem'>
         
-             <h2 className="book_name">{book_name}</h2>
+             <h2 className="book_name flex gap-5">{`Order ID: ${order_id}`}</h2>
         <div className='qandp'>
                 
-            <div className='ayhaga'> <span>quantity: <span className="quantity"> {quantity} </span> </span> </div>  <br />
-            <span> price: <span className="price"> {price} </span></span>
+            <div className='ayhaga'> <span>Username:  <span className=" pr-2"> {username} </span> </span> </div>  <br />
+            <span> price: <span className=" pr-2"> {price} </span></span>
 
         </div>
             

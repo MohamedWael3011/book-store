@@ -1,57 +1,93 @@
-import './CategorizedBooks.css';
+import "./CategorizedBooks.css";
 import Navbar from "../NavAndFooter/Navbar";
+import { useState } from "react";
+import Footer from "../NavAndFooter/Footer";
+import BackButton from "../BackButton/BackButton";
+import Recymen from "../../components/assets/Rectangle33.png";
+import Recshmal from "../../components/assets/Rectangle34.png";
+import { getGenres } from "../../controller/GenreController";
+import { useQuery, useMutation } from "react-query";
+import { getBookByGenre } from "../../controller/BooksController";
 import Book from "../Home/Book";
-import { useState } from 'react';
-import testbook from '../../components/assets/testbook.jpg';
-import Footer from '../NavAndFooter/Footer';
-import BackButton from '../BackButton/BackButton';
-import Genre from './Genre';
-import Recymen from '../../components/assets/Rectangle33.png';
-import Recshmal from '../../components/assets/Rectangle34.png';
-import { getGenres } from '../../controller/GenreController';
-import { useQuery } from 'react-query';
-
+import { Link } from "react-router-dom";
 const CategorizedBooks = () => {
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [books, setBooks] = useState([]);
+  const { data: genreData } = useQuery({
+    queryFn: getGenres,
+    queryKey: ["genres"],
+  });
 
-    const { data: genreData } = useQuery({
-        queryFn: getGenres,
-        queryKey: ["genres"]
-    });
+  const bookGenre = useMutation({
+    mutationFn: async (genre) => {
+      try {
+        const response = await getBookByGenre(genre);
+        setBooks(response);
+        return response;
+      } catch (error) {
+        console.error("Error fetching book:", error);
+        throw error;
+      }
+    },
+  });
 
-    return (
-        <div className="page">
+  const handleGenreChange = (event) => {
+    const selectedGenreValue = event.target.value;
+    setSelectedGenre(selectedGenreValue);
 
-            <Navbar />
-            <div className='BackButtonn'><BackButton /></div>
-            <div className='recymen'> <img src={Recymen} /> </div>
-            <div className='recshmal'> <img src={Recshmal} /> </div>
-            <div className='genrelist'>
-                <div className='ay7aga'>
-                    <h3 className='listname'>Genre</h3>
-                    <hr className='line' />
-                    {genreData?.map((genre) => (
-                        <div key={genre.id} className='genrename'>
-                            <label className="genreee"> {genre.name} <input className='checkaya' type="checkbox" name='genree' /> </label>
-                        </div>
-                    ))}
-                </div>
+    if (selectedGenreValue) {
+      bookGenre.mutate(selectedGenreValue);
+    }
+  };
+
+  return (
+    <div className="page">
+      <Navbar />
+      <Link to="/home"><div className="BackButtonn">
+        <BackButton />
+      </div></Link>
+      <div className="recymen">
+        {" "}
+        <img src={Recymen} />{" "}
+      </div>
+      <div className="recshmal">
+        {" "}
+        <img src={Recshmal} />{" "}
+      </div>
+      <div className="genrelist">
+        <div className="ay7aga">
+          <h3 className="listname">Genre</h3>
+          <hr className="line" />
+          {genreData?.map((genre) => (
+            <div key={genre.id} className="mt-5 p-2 flex items-center gap-2">
+              <label className=""> 
+                {genre.name}
+              </label>
+
+                <input
+                className="checkaya"
+                  type="radio"
+                  name="genree"
+                  value={genre.name}
+                  checked={selectedGenre === genre.name}
+                  onChange={handleGenreChange}
+                />{" "}
             </div>
-            <div className='displaybooks'>
-                <div className="booksrow">
-                </div>
-                <div className="booksrow">
-                </div>
-                <div className="booksrow">
-                </div>
-                <div className="booksrow">
-                </div>
-                <div className="booksrow">
-                </div>
-            </div>
-            <Footer />
+          ))}
         </div>
-
-    );
-
-}
+      </div>
+      <div className="displaybooks">
+        {books?.map((book) => {
+          return (
+            <div key={book.id} className="booksrow">
+              <Book book={book} />
+              {book.book_name}
+            </div>
+          );
+        })}
+      </div>
+      <Footer />
+    </div>
+  );
+};
 export default CategorizedBooks;

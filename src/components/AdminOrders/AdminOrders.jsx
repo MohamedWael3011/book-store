@@ -1,7 +1,12 @@
 import UsersOrders from "./UsersOrders";
 import Navbar from "../NavAndFooter/Navbar";
 import Footer from "../NavAndFooter/Footer";
+
 const AdminOrders =() =>{   
+
+
+
+
     
 return(
     <div>
@@ -9,7 +14,6 @@ return(
 
                 <Navbar/>
                
-                <UsersOrders/>
                 <UsersOrders/>
                
                

@@ -12,10 +12,11 @@ import Book2 from  '../../components/assets/Book2.png';
 import Book3 from  '../../components/assets/Book3.png';
 import Book from '../../components/Home/Book';
 import { getBooks, getBook } from "../../controller/BooksController.ts"
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient,useMutation } from "react-query";
 import { useLocation } from "react-router-dom";
-import { getCart } from "../../controller/UserController.ts";
+import { getCart, removeFromCart } from "../../controller/UserController.ts";
 import useUserDetails from "../../hooks/useUserDetails.js";
+import {Link} from 'react-router-dom'
 
 // import {useHistory} from "react-router-dom";
 // import { Link } from "react-router-dom";
@@ -23,13 +24,20 @@ import useUserDetails from "../../hooks/useUserDetails.js";
 
   const Cart = () => {
     const [user] = useUserDetails();
+    const queryClient = useQueryClient()
     const [totalAmount,setTotalAmount] = useState(0);
     const {data:cartData} = useQuery({
-      queryFn:()=> getCart(8),
-      queryKey: [`cart ${8}`]
+      queryFn:()=> getCart(user.id),
+      queryKey: [`cart ${user.id}`]
     });
 
     
+
+    const removeCartMutation  = useMutation(
+      {mutationFn:(IDs) => removeFromCart(IDs.cid,IDs.bid),
+          onSuccess: ()=>queryClient.invalidateQueries([`cart ${user.id}`])
+      
+      });
 
 
     console.log(cartData)
@@ -90,7 +98,7 @@ return (<div key={index} className="AllItemsSection">
     </div>
   </div>
 </div>
-<button>
+<button onClick={() => {  removeCartMutation.mutate({cid:cart.cart.cartId, bid:cart.book.id}); }}>
   <div className="TrashSection">
   <div className="verticalLine"></div>
   <img className="removeIcon" src={Basket} alt="Basket" />
@@ -137,14 +145,14 @@ return (<div key={index} className="AllItemsSection">
             <div className="freeshipping">
             *Free Shipping For Orders Above 1000*
             </div>
+            <Link to="/delivery-form">
             <div className="btn">
-              <button type="submit" className="text-3xl"
-            //    onClick={handleSubmit}
+              <button  className="text-3xl"
                >
                 <h3 className="proceed">Proceed to checkout</h3>
               </button>
             </div>
-          
+            </Link>
    
   </div>
 </div>

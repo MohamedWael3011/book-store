@@ -6,8 +6,7 @@ import Book from './Book';
 import './BookPage.css';
 import ReviewsProp from '../PropsAndComps/ReviewsProp';
 import star from '../../components/assets/star.svg';
-import StarRatingAndReview from '../PropsAndComps/StarRatingAndReview';
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import BookNotFound from '../Home/BookNotFound';
 import { getBook } from '../../controller/BooksController';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
@@ -16,9 +15,9 @@ import { getReviews, addReview } from '../../controller/ReviewsController.ts';
 import '../../components/PropsAndComps/StarRatingAndReview.css';
 import { FaStar } from 'react-icons/fa';
 import useUserDetails from '../../hooks/useUserDetails.js';
+import { addToCart } from '../../controller/UserController.ts';
 
 const BookPage = () => {
-    const navigate = useNavigate()
     const [user] = useUserDetails();
     const [reviewText, setReviewText] = useState('');
     const [currentValue, setCurrentValue] = useState(0);
@@ -64,6 +63,12 @@ const BookPage = () => {
         
         });
 
+        const addToCartMutation  = useMutation(
+            {mutationFn:(uid) => addToCart(uid,{book_id:bookid,quantity:1}),
+             onSuccess: ()=>queryClient.invalidateQueries([`cart ${user.id}`])
+            
+            });
+
 
     const specificBook = bookDetails;
 
@@ -103,7 +108,9 @@ const BookPage = () => {
                             PRICE: <span className='book_page_price_text'>{specificBook.price}</span> EGY
                         </div>
                         <div className='book_page_user_buttons'>
-                            <button onClick={() => navigate('/cart', { state: { bookid } })} className="add_cart">Add to cart</button>
+                            <button onClick={() => {
+                                console.log(addToCartMutation.mutate(user.id))
+                                }} className="add_cart">Add to cart</button>
                         </div>
                     </div>
                     <div className='book_page_cover_cont_user'>

@@ -1,12 +1,11 @@
 import Navbar from "../NavAndFooter/Navbar";
 import Footer from '../NavAndFooter/Footer';
-import Trash from "../assets/Trash.png";
 import './AdminBooks.css';
 import { getBooks } from "../../controller/BooksController.ts"
 import { useQuery } from "react-query";
 import AdminbooksRow from "./AdminbooksRow.jsx";
 import useIsAdmin from "../../hooks/useIsAdmin.js";
-
+import {Link} from 'react-router-dom'
 const AdminBooks = () => {
     const isAdmin = useIsAdmin();
 

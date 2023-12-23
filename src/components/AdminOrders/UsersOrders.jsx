@@ -1,67 +1,85 @@
-import './userorder.css';
-import { useState } from 'react';
-import OrderItem from '../../components/UserOrders/OrderItem.jsx'
+import "./userorder.css";
+import { useState } from "react";
+import OrderItem from "../../components/UserOrders/OrderItem.jsx";
 // import Deliverydetails from './Deliverydetails ';
-import arrow from '../../components/assets/Vector 2.png';
+import arrow from "../../components/assets/Vector 2.png";
 
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import {
+  cancelOrder,
+  getPendingOrders,
+} from "../../controller/OrderController";
+import useUserDetails from "../../hooks/useUserDetails";
+const UsersOrders = () => {
+  const [user] = useUserDetails();
+  const queryClient = useQueryClient();
+  const { data: orderData } = useQuery({
+    queryFn: () => getPendingOrders("Pending Approval"),
+    queryKey: [`order ${user.id}`],
+  });
 
-const UsersOrders  = () => {
-  
-  
-    const [items, setitems] = useState([
-      { book_name:'Twisted Hate ', quantity:3, price:750 } ,
-      { book_name:'King Of Wrath', quantity:1, price: 250},
-      { book_name:'It Ends With Us', quantity:1, price: 500}
-      ]);
+  const rejectOrderMutation = useMutation({
+    mutationFn: (IDs) =>{ console.log(IDs); cancelOrder(IDs.oid, IDs.uid)},
+    onSuccess: () => queryClient.invalidateQueries([`order ${user.id}`]),
+  });
 
-      // const [delivery, setdelvirydata] = useState([
-      //   {order_id:,shipping:'', Address:'', Status:''} , 
+  // const [delivery, setdelvirydata] = useState([
+  //   {order_id:,shipping:'', Address:'', Status:''} ,
 
-      // ]);
+  // ]);
 
-return(
+  return (
     <div>
-      
-      <div className="orrder">
+      {orderData?.map((o) => {
+        return (
+          <div key={o.id} className="orrder">
+            <div className="orrderdetails">
+              <div className="orderitemsandDelivery">
+                <div key={o.id} className="item">
+                  {" "}
+                  <OrderItem
+                    items={{
+                      order_id: o.id,
+                      username: o.user.username,
+                      price: o.payment.payment_amount,
+                    }}
+                  />
+                </div>
+                <div className="vline"></div>
 
-          <label className="ordernum"> <h3><u>order ID 200</u></h3> 
-      
-          <button  type="button"><img className='arow' src= {arrow}/> </button>
-          
-         
-          </label>
-
-        <div className='orrderdetails'>
-            <span className='totalitems'>total items 3</span>
-      
-          <div className='orderitemsandDelivery'>
-
-            <div className='item'> <OrderItem items={items[0]}/> </div> 
-            <div className='item'> <OrderItem items={items[1]}/> </div>
-            <div className='item'> <OrderItem items={items[2]}/> </div> 
-            
-            <div class="vline"></div>
-          
-            <div className='Deliveryinfo'>
-
-                <div className='delinfo'> <span className='mark' > Delivery shipping: </span> <span className='mark2'> 50 EGY </span> <br /> </div>  
-                <div className='delinfo'> <span className='mark' > Address: </span> <span className='mark2'> Cairo-Naser city </span> <br /> </div> 
-                <div className='delinfoo'> <span className='mark' > Status: </span> <span className='mark2'> pending </span> </div> 
-        
+                <div className="Deliveryinfo">
+                  <div className="delinfo">
+                    {" "}
+                    <span className="mark"> Delivery shipping: </span>{" "}
+                    <span className="mark2"> 50 EGY </span> <br />{" "}
+                  </div>
+                  <div className="delinfo">
+                    {" "}
+                    <span className="mark"> Address: </span>{" "}
+                    <span className="mark2"> Cairo-Naser city </span> <br />{" "}
+                  </div>
+                  <div className="delinfoo">
+                    {" "}
+                    <span className="mark"> Status: </span>{" "}
+                    <span className="mark2"> pending </span>{" "}
+                  </div>
+                </div>
+              </div>
+              <button className="Acceptbutton" type="button">
+                <span> Accept </span>
+              </button>
+              <button
+                className="Rejectbutton"
+                type="button"
+                onClick={() => rejectOrderMutation.mutate({ oid: o.id, uid: o.user.id })}
+              >
+                <span> Reject </span>
+              </button>
             </div>
-
-            
           </div>
-          <button className='Acceptbutton' type="button"><span> Accept </span></button> 
-          <button className='Rejectbutton' type="button"><span > Reject </span></button> 
-          
-        </div>
-
-      </div>
-
-
+        );
+      })}
     </div>
-    
-    );
-}
+  );
+};
 export default UsersOrders;
