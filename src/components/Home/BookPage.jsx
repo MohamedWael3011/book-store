@@ -133,10 +133,10 @@ const BookPage = () => {
                             </span>
                         </div>
                         <div className='desc_cont'>
-                        {specificBook.author.description}
+                        {specificBook.author.author_description}
                         </div>
                     </div>
-                    <div className='book_recommendations'>
+                    <div className='book_recommendations overflow-auto'>
                         {bookData?.map((book) => { return (<Book key={book.id} book={book} className='book_cont' />) })}
                     </div>
                 </div>
@@ -146,7 +146,7 @@ const BookPage = () => {
                     </span>
                     <div className='sales_rating_main_cont'>
                         <span className='sales_rating_cont'>
-                            Sales: {specificBook.sales}
+                            Sales: {specificBook.num_sales}
                         </span>
                         <span className='sales_rating_cont'>
                             Rating:
@@ -156,7 +156,7 @@ const BookPage = () => {
                                 <img src={star} />
                             </div>
                             <span className='book_rating_num'>
-                                {specificBook.rating}
+                                {specificBook.rates}
                             </span>
                         </div>
                     </div>
