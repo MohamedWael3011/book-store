@@ -1,6 +1,7 @@
 .left-section-margin {
     width: 65vw;
     min-height: 70vh;
+    height: fit-content;
     flex-shrink: 0;
     border-radius: 32px 0px;
     background: rgba(157, 139, 112, 0.40);

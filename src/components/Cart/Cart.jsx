@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './cart.css';
 import Navbar from "../NavAndFooter/Navbar";
 import Footer from "../NavAndFooter/Footer";
@@ -23,106 +23,30 @@ import useUserDetails from "../../hooks/useUserDetails.js";
 
   const Cart = () => {
     const [user] = useUserDetails();
+    const [totalAmount,setTotalAmount] = useState(0);
     const {data:cartData} = useQuery({
-      queryFn:()=> getCart(11),
-      queryKey: [`cart ${user.id}`]
+      queryFn:()=> getCart(8),
+      queryKey: [`cart ${8}`]
     });
 
-    const location = useLocation();
     
-    const {data:bookDetails} = useQuery({
-        queryFn: ()=>getBook(location.state.bookid),
-        queryKey: [`book ${location.state.bookid}`] 
-    });
+
 
     console.log(cartData)
     
-    const specificBook = bookDetails;
-      const [items, setItems] = useState([]);
-      const [orderAmount, setOrderAmount] = useState(0);
-      const deliveryAmount = 50;
-      const id = useState(0);
-      const [totalPrice, setTotalPrice] = useState(0);
-      const totalAmount = orderAmount + deliveryAmount;
-      const [totalBooks, setTotalBooks] = useState(0);
-      const [orderId, setOrderId] = useState(1);
       
-      // const history = useHistory();
-    
-      const handleIncrement = () => {
-      setQuantity(quantity + 1);
-      setTotalPrice(price * (quantity + 1));
-    };
       
-    // const handleIncrement = (item) => {
-    //     const updatedItems = items.map((i) => {
-    //       if (i.id === item.id) {
-    //         return { ...i, quantity: i.quantity + 1 };
-    //       }
-    //       return i;
-    //     });
-    //     setItems(updatedItems);
-    //   };
-    
-      const handleDecrement = () => {
-        if (quantity > 0) {
-          setQuantity(quantity - 1);
-          setTotalPrice(price * (quantity - 1));
-        }
-      };
-        
-      // const handlePlaceOrder = () => {
-      //   // Pass the subtotal as a query parameter to the Delivery page
-      //   history.push("./components/Delivery/DeliveryForm?subtotal="+{orderAmount});
-      // };
-    
-    // const handleDecrement = (item) => {
-    //     const updatedItems = items.map((i) => {
-    //       if (i.id === item.id && i.quantity > 0) {
-    //         return { ...i, quantity: i.quantity - 1 };
-    //       }
-    //       return i;
-    //     });
-    //     setItems(updatedItems);
-    //   };
-      
-    
-    const handleAddToCart = (item) => {
-        const existingItem = items.find((i) => i.id === item.id);
-        if (existingItem) {
-          const updatedItems = items.map((i) => {
-            if (i.id === item.id) {
-              return { ...i, quantity: i.quantity + 1 };
-            }
-            return i;
-          });
-          setItems(updatedItems);
-        } else {
-          setItems([...items, { ...item, quantity: 1 }]);
-        }
-        setOrderAmount((prevAmount) => prevAmount + item.price);
-        setTotalBooks((prevTotal) => prevTotal + 1);
-      };
-      
-      const handleRemoveFromCart = (item) => {
-        const existingItem = items.find((i) => i.id === item.id);
-        if (existingItem.quantity > 1) {
-          const updatedItems = items.map((i) => {
-            if (i.id === item.id) {
-              return { ...i, quantity: i.quantity - 1 };
-            }
-            return i;
-          });
-          setItems(updatedItems);
-        } else {
-          const updatedItems = items.filter((i) => i.id !== item.id);
-          setItems(updatedItems);
-        }
-        setOrderAmount((prevAmount) => prevAmount - item.price);
-        setTotalBooks((prevTotal) => prevTotal - 1);
-      };
     
 
+    useEffect(()=>{
+      let sum = 0
+      cartData?.forEach(cart=>{
+        sum +=cart.book.price;
+      }
+      )
+      setTotalAmount(sum)
+
+    },[cartData])
   return (
     <div>
       <Navbar />
@@ -134,13 +58,50 @@ import useUserDetails from "../../hooks/useUserDetails.js";
         <div className="left-section">
          <div className="top">
 
-         <div className="orderID" data-order-id={`Order ${orderId}`}></div>
+         <div className="orderID" data-order-id={`Order ${0}`}></div>
          </div>
           <div className="left-section-margin">
               <div>
-              {items.length > 0 ? (
+              {cartData ? (
   <div className="allItems">
+{cartData?.map((cart,index) => {
 
+return (<div key={index} className="AllItemsSection">
+<div className="items-section" key={cart.book.id}>
+<div className="book-info">
+  <div className="book_cover">
+    <img className="book-cover" src={cart.book.image_url} alt="Book Cover" />
+  </div>
+  <div className="book-details">
+    <div className="title">{cart.book.book_name}</div>
+    <div className="price">Price: {cart.book.price} EGP</div>
+    <div className="quantity">
+      <button
+        className="decrementButton"
+      >
+        <img src={DecrementIcon} alt="Decrement" className="icon" />
+      </button>
+      <span>{cart.quantity}</span>
+      <button
+        className="incrementButton"
+      >
+        <img src={AddIcon} alt="Increment" className="icon" />
+      </button>
+    </div>
+  </div>
+</div>
+<button>
+  <div className="TrashSection">
+  <div className="verticalLine"></div>
+  <img className="removeIcon" src={Basket} alt="Basket" />
+</div>
+  </button>
+</div>
+
+</div>)
+}
+
+)}
   </div>
 ) : (
   <div className="emptyCart">
@@ -152,44 +113,7 @@ import useUserDetails from "../../hooks/useUserDetails.js";
 </div> 
 
 
-{bookDetails?.map((book) => {
 
-      <div className="AllItemsSection">
-    <div className="items-section" key={book.id}>
-      <div className="book-info">
-        <div className="book_cover">
-          <img className="book-cover" src={book.img} alt="Book Cover" />
-        </div>
-        <div className="book-details">
-          <div className="title">{book.title}</div>
-          <div className="price">Price: {book.price} EGP</div>
-          <div className="quantity">
-            <button
-              className="decrementButton"
-              onClick={() => handleRemoveFromCart(book)}
-            >
-              <img src={DecrementIcon} alt="Decrement" className="icon" />
-            </button>
-            <span>{quantity}</span>
-            <button
-              className="incrementButton"
-              onClick={() => handleAddToCart(book)}
-            >
-              <img src={AddIcon} alt="Increment" className="icon" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <button>
-        <div className="TrashSection">
-        <div className="verticalLine"></div>
-        <img className="removeIcon" src={Basket} alt="Basket" />
-      </div>
-        </button>
-    </div>
-
-  </div>
-})}
 
 
 
@@ -201,8 +125,8 @@ import useUserDetails from "../../hooks/useUserDetails.js";
   <div className="right-section">
          <h3 className="CartText">Cart Summary</h3>       
         <div className="horiz-line"></div>
-        <h4 className="booksTotal"> Total items: {totalBooks} Books<br/>
-                                    Subtotal: {orderAmount} EGP
+        <h4 className="booksTotal"> Total items: {cartData?.length} Books<br/>
+                                    Total Price: {totalAmount} EGP
         </h4>
         <div className="horiz-line"></div>
         <div><input className='inputText'
@@ -233,7 +157,7 @@ import useUserDetails from "../../hooks/useUserDetails.js";
       <div className="Suggest2"><a href = "">See All &gt; </a></div>
       </div>
       <div className="bookSuggestions">
-      {cartData?.map((book)=>{return (<Book key={book.id} book={book} className='book_cont'/>)})}
+      {cartData?.map((cart)=>{return (<Book key={cart.book.id} book={cart.book} className='book_cont'/>)})}
         </div>
     </div>
     </div>

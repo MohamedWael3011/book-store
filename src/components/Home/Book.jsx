@@ -15,7 +15,7 @@ const Book = ({book}) => {
       </Link>
         <h3 className="book_title">{book.book_name}</h3>
         <div className="author_price_container">
-          <span className="author text-black whitespace-nowrap">{book.author.author_name}</span>
+          <span className="author text-black whitespace-nowrap">{book.author.name}</span>
           <div className='price_currency_cont'>
               <span className="book_price_book">{book.price}</span>
               <span className='currency_book'>EGP</span>
